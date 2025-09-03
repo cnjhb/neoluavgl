@@ -1,7 +1,13 @@
 # lvgl-lua-binding
-lua + lvgl = luavgl
+neo + lua + lvgl = neoluavgl
 
-**luavgl is currently under development.**
+[`luavgl`](https://github.com/XuNeo/luavgl)fork
+* More features
+* More widgets
+* More bug fixes
+* Better support for LuaJIT and Lua 5.1
+
+**neoluavgl is currently under development.**
 
 A flappy bird game is ready for showoff. 
 
