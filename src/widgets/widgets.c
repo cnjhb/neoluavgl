@@ -33,6 +33,10 @@
 #include "led.c"
 #endif
 
+#if LV_USE_LINE
+#include "line.c"
+#endif
+
 #if LV_USE_LIST
 #include "list.c"
 #endif
@@ -86,6 +90,10 @@ static const luaL_Reg widget_create_methods[] = {
     {"Led",      luavgl_led_create     },
 #endif
 
+#if LV_USE_LINE
+    {"Line",     luavgl_line_create    },
+#endif
+
 #if LV_USE_LIST
     {"List",     luavgl_list_create    },
 #endif
@@ -120,6 +128,10 @@ static void luavgl_widgets_init(lua_State *L)
 
 #if LV_USE_LED
   luavgl_led_init(L);
+#endif
+
+#if LV_USE_LINE
+  luavgl_line_init(L);
 #endif
 
 #if LV_USE_LIST
