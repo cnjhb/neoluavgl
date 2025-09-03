@@ -1,3 +1,4 @@
+#include "lua.h"
 #include "luavgl.h"
 #include "private.h"
 
@@ -1018,6 +1019,15 @@ static int obj_meta__tostring(lua_State *L)
   return 1;
 }
 
+static void luavgl_obj_destruct(lua_State *L, const luavgl_obj_class_t *clz,
+                                luavgl_obj_t *lobj)
+{
+  if (clz->destructor_cb)
+    clz->destructor_cb(L, clz, lobj);
+  if (clz->base_class)
+    luavgl_obj_destruct(L, clz->base_class, lobj);
+}
+
 static int obj_meta__gc(lua_State *L)
 {
   if (lua_type(L, 1) != LUA_TUSERDATA) {
@@ -1035,6 +1045,14 @@ static int obj_meta__gc(lua_State *L)
     /* obj is already deleted. It's ok. */
     return 0;
   }
+  const luavgl_obj_class_t *lclz = &luavgl_obj_class;
+  lua_pushlightuserdata(L, (void *)lobj->obj->class_p);
+  lua_rawget(L, LUA_REGISTRYINDEX);
+  if (lua_isuserdata(L, -1)) {
+    lclz = lua_touserdata(L, -1);
+  }
+  lua_pop(L, 1);
+  luavgl_obj_destruct(L, lclz, lobj);
 
   LV_LOG_INFO("GC for obj: %p", lobj->obj);
   luavgl_obj_delete(L);
