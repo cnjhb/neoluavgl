@@ -22,6 +22,15 @@ fail:
   return NULL;
 }
 
+LUALIB_API luavgl_obj_t *luavgl_obj_to_lobj(lua_State *L, lv_obj_t *obj)
+{
+  lua_pushlightuserdata(L, obj);
+  lua_rawget(L, LUA_REGISTRYINDEX);
+  luavgl_obj_t *lobj = luavgl_to_lobj(L, -1);
+  lua_pop(L, 1);
+  return lobj;
+}
+
 LUALIB_API int luavgl_is_callable(lua_State *L, int index)
 {
   if (luaL_getmetafield(L, index, "__call") != LUA_TNIL) {
@@ -373,13 +382,24 @@ LUALIB_API lv_point_t luavgl_topoint(lua_State *L, int idx)
 {
   lv_point_t point = {0};
   if (lua_istable(L, idx)) {
-    lua_getfield(L, idx, "x");
-    point.x = lua_tointeger(L, -1);
-    lua_pop(L, 1);
+    lua_rawgeti(L, idx, 1);
+    if (!lua_isnoneornil(L, -1)) {
+      point.x = lua_tointeger(L, -1);
+      lua_pop(L, 1);
 
-    lua_getfield(L, idx, "y");
-    point.y = lua_tointeger(L, -1);
-    lua_pop(L, 1);
+      lua_rawgeti(L, idx, 2);
+      point.y = lua_tointeger(L, -1);
+      lua_pop(L, 1);
+    } else {
+      lua_pop(L, 1);
+      lua_getfield(L, idx, "x");
+      point.x = lua_tointeger(L, -1);
+      lua_pop(L, 1);
+
+      lua_getfield(L, idx, "y");
+      point.y = lua_tointeger(L, -1);
+      lua_pop(L, 1);
+    }
   } else {
     luaL_error(L, "point should be table");
   }
