@@ -6,9 +6,19 @@ typedef struct luavgl_line_s {
   lv_point_precise_t *points;
 } luavgl_line_t;
 
+static void line_destructor_cb(lua_State *L, const luavgl_obj_class_t *clz,
+                               luavgl_obj_t *lobj)
+{
+  luavgl_line_t *line = (luavgl_line_t *)lobj;
+  if (line->points) {
+    free(line->points);
+  }
+}
+
 static const luavgl_obj_class_t luavgl_line_class = {
     .base_class = &luavgl_obj_class,
     .instance_size = sizeof(luavgl_line_t),
+    .destructor_cb = line_destructor_cb,
 };
 
 static int line_set_points(lua_State *L, lv_obj_t *obj, bool set)
