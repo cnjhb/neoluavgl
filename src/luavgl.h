@@ -64,6 +64,15 @@ typedef struct luavgl_obj_s {
   lv_array_t events;
 } luavgl_obj_t;
 
+typedef struct luavgl_obj_class_s {
+  const struct luavgl_obj_class_s *base_class;
+  uint32_t instance_size;
+  void (*constructor_cb)(lua_State *L, const struct luavgl_obj_class_s *clz,
+                         luavgl_obj_t *obj);
+  void (*destructor_cb)(lua_State *L, const struct luavgl_obj_class_s *clz,
+                        luavgl_obj_t *obj);
+} luavgl_obj_class_t;
+
 typedef struct luavgl_property_ops_s {
   const char *name; /* property name */
   /* property setter, key: -2, value -1*/
@@ -80,6 +89,8 @@ typedef struct luavgl_table_s {
 
 #define luavgl_set_property(L, obj, table)                                     \
   luavgl_set_property_array(L, obj, table, sizeof(table) / sizeof(table[0]))
+
+extern const luavgl_obj_class_t luavgl_obj_class;
 
 LUALIB_API luavgl_ctx_t *luavgl_context(lua_State *L);
 
@@ -152,10 +163,10 @@ LUALIB_API int luavgl_createmetatable(lua_State *L, const void *key,
                                       const char *name);
 
 /**
-  * @brief Get metatable using lightuserdata as key.
-  * @param L
-  * @param key lightuserdata key
-  * @return 1
+ * @brief Get metatable using lightuserdata as key.
+ * @param L
+ * @param key lightuserdata key
+ * @return 1
  */
 LUALIB_API int luavgl_getmetatable(lua_State *L, const void *key);
 
@@ -177,6 +188,8 @@ LUALIB_API int luavgl_obj_createmetatable(lua_State *L,
                                           const lv_obj_class_t *clz,
                                           const char *name,
                                           const rotable_Reg *l, int n);
+
+LUALIB_API luavgl_obj_t *luavgl_obj_to_lobj(lua_State *L, lv_obj_t *obj);
 
 /* helper to get value from stack */
 

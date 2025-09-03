@@ -1138,6 +1138,47 @@ LUALIB_API int luavgl_obj_create_helper(lua_State *L,
   return 1;
 }
 
+static void luavgl_obj_construct(lua_State *L, const luavgl_obj_class_t *clz,
+                                 luavgl_obj_t *lobj)
+{
+  if (clz->base_class) {
+    luavgl_obj_construct(L, clz->base_class, lobj);
+  }
+  if (clz->constructor_cb) {
+    clz->constructor_cb(L, clz, lobj);
+  }
+}
+
+static luavgl_obj_t *luavgl_obj_class_create_obj(lua_State *L,
+                                                 const luavgl_obj_class_t *clz,
+                                                 lv_obj_t *obj)
+{
+  luavgl_obj_t *lobj = lua_newuserdata(L, clz->instance_size);
+  memset(lobj, 0, clz->instance_size);
+  lobj->obj = obj;
+
+  /* registry[obj] = lobj */
+  lua_pushlightuserdata(L, obj);
+  lua_pushvalue(L, -2);
+  lua_rawset(L, LUA_REGISTRYINDEX);
+
+  luavgl_obj_construct(L, clz, lobj);
+  return lobj;
+}
+
+static void obj_constructor_cb(lua_State *L, const luavgl_obj_class_t *clz,
+                               luavgl_obj_t *lobj)
+{
+  /* Init event array to store events added from lua. */
+  lv_array_init(&lobj->events, 0, sizeof(struct event_callback_s *));
+  lv_obj_add_event_cb(lobj->obj, obj_delete_cb, LV_EVENT_DELETE, L);
+}
+
+const luavgl_obj_class_t luavgl_obj_class = {
+    .instance_size = sizeof(luavgl_obj_t),
+    .constructor_cb = obj_constructor_cb,
+};
+
 /**
  * Add existing lvgl obj to lua, return lobj(luavgl obj).
  * If no metatable not found for this obj class, then lv_obj_class metatable is
@@ -1145,7 +1186,7 @@ LUALIB_API int luavgl_obj_create_helper(lua_State *L,
  */
 LUALIB_API luavgl_obj_t *luavgl_add_lobj(lua_State *L, lv_obj_t *obj)
 {
-  luavgl_obj_t *lobj;
+  luavgl_obj_t *lobj = NULL;
 
   /* In rare case, obj may be deleted but not gc'ed in lua, and lvgl quickly
    * creates another obj but happen to malloced same address, thus using obj
@@ -1158,7 +1199,25 @@ LUALIB_API luavgl_obj_t *luavgl_add_lobj(lua_State *L, lv_obj_t *obj)
   }
   lua_pop(L, 1); /* pop nil value */
 
-  lobj = lua_newuserdata(L, sizeof(*lobj));
+  const lv_obj_class_t *clz = obj->class_p;
+  int t = luavgl_obj_getmetatable(L, clz);
+  if (t == LUA_TTABLE) {
+    lua_getfield(L, -1, "__index");
+    t = lua_getfield(L, -1, "__class");
+    if (t == LUA_TLIGHTUSERDATA) {
+      const luavgl_obj_class_t *lclz = lua_touserdata(L, -1);
+      lua_pop(L, 3);
+      lobj = luavgl_obj_class_create_obj(L, lclz, obj);
+    } else {
+      lua_pop(L, 3);
+    }
+  } else {
+    lua_pop(L, 1);
+  }
+
+  if (!lobj) {
+    lobj = luavgl_obj_class_create_obj(L, &luavgl_obj_class, obj);
+  }
 
   /* Add obj metatable to userdata. */
   if (luavgl_getmetatable(L, &obj_meta_key) == LUA_TNIL) {
@@ -1166,18 +1225,6 @@ LUALIB_API luavgl_obj_t *luavgl_add_lobj(lua_State *L, lv_obj_t *obj)
     return NULL;
   }
   lua_setmetatable(L, -2);
-
-  lv_memset(lobj, 0, sizeof(*lobj));
-  lobj->obj = obj;
-
-  /* Init event array to store events added from lua. */
-  lv_array_init(&lobj->events, 0, sizeof(struct event_callback_s *));
-  lv_obj_add_event_cb(obj, obj_delete_cb, LV_EVENT_DELETE, L);
-
-  /* registry[obj] = lobj */
-  lua_pushlightuserdata(L, obj);
-  lua_pushvalue(L, -2);
-  lua_rawset(L, LUA_REGISTRYINDEX);
 
 #if (LUA_VERSION_NUM == 501)
   lua_newtable(L);
