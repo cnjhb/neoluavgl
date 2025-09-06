@@ -1316,11 +1316,11 @@ end
 --- @field line_width integer
 --- @field line_dash_width integer
 --- @field line_dash_gap integer
---- @field line_rounded integer
+--- @field line_rounded boolean
 --- @field line_color integer | string
 --- @field line_opa integer
 --- @field arc_width integer
---- @field arc_rounded integer
+--- @field arc_rounded boolean
 --- @field arc_color integer | string
 --- @field arc_opa integer
 --- @field arc_image_src integer
