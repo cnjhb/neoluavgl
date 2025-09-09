@@ -104,7 +104,7 @@ static const struct style_map_s {
     {"line_dash_width",      LV_STYLE_LINE_DASH_WIDTH,      STYLE_TYPE_INT                       },
     {"line_dash_gap",        LV_STYLE_LINE_DASH_GAP,        STYLE_TYPE_INT                       },
     {"line_rounded",         LV_STYLE_LINE_ROUNDED,         STYLE_TYPE_INT                       },
-    {"line_color",           LV_STYLE_LINE_COLOR,           STYLE_TYPE_INT                       },
+    {"line_color",           LV_STYLE_LINE_COLOR,           STYLE_TYPE_COLOR                     },
     {"line_opa",             LV_STYLE_LINE_OPA,             STYLE_TYPE_INT                       },
     {"arc_width",            LV_STYLE_ARC_WIDTH,            STYLE_TYPE_INT                       },
     {"arc_image_src",        LV_STYLE_ARC_IMAGE_SRC,        STYLE_TYPE_IMGSRC                    },
