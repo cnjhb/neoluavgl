@@ -1355,7 +1355,7 @@ end
 --- @field bg_main_stop? integer
 --- @field bg_grad_stop? integer
 --- @field bg_dither_mode? integer
---- @field bg_image_src? integer
+--- @field bg_image_src? integer | string
 --- @field bg_image_opa? integer
 --- @field bg_image_recolor? integer
 --- @field bg_image_recolor_opa? integer
@@ -1388,7 +1388,7 @@ end
 --- @field arc_rounded? boolean
 --- @field arc_color? integer | string
 --- @field arc_opa? integer
---- @field arc_image_src? integer
+--- @field arc_image_src? integer | string
 --- @field text_color? integer | string
 --- @field text_opa? integer
 --- @field text_font? Font | BuiltinFont
