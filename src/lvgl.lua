@@ -899,6 +899,12 @@ end
 --- @field max_value integer
 local arc = {}
 
+--- rotate obj to angle
+--- @param obj Object
+--- @param r_offset integer
+function arc:rotate_obj_to_angle(obj,r_offset)
+end
+
 ---
 --- Calendar widget
 ---@class Calendar:Object
