@@ -417,6 +417,14 @@ end
 
 lvgl.Label = Label
 
+--- 
+--- Create Line on parent
+--- @param parent? Object | nil
+--- @param property? StyleProp
+--- @return Line
+function lvgl.Line(parent, property)
+end
+
 ---
 --- Create Textarea Widget on parent
 --- @param parent? Object | nil
@@ -1064,6 +1072,11 @@ end
 --- @return nil
 function label:cut_text(pos, cnt)
 end
+
+--- Line widget
+--- @class Line: Object
+--- @field points table
+local line = {}
 
 ---
 --- Textarea widget
