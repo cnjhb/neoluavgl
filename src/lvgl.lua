@@ -1505,11 +1505,11 @@ end
 --- @alias flexAlignOptions "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "space-evenly"
 ---
 --- @class FlexLayoutPara
---- @field flex_direction "row" | "column" | "row-reverse" | "column-reverse"
---- @field flex_wrap "nowrap" | "wrap" | "wrap-reverse"
---- @field justify_content flexAlignOptions
---- @field align_items flexAlignOptions
---- @field align_content flexAlignOptions
+--- @field flex_direction? "row" | "column" | "row-reverse" | "column-reverse"
+--- @field flex_wrap? "nowrap" | "wrap" | "wrap-reverse"
+--- @field justify_content? flexAlignOptions
+--- @field align_items? flexAlignOptions
+--- @field align_content? flexAlignOptions
 
 
 ---
