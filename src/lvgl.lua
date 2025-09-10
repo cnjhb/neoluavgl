@@ -610,6 +610,7 @@ end
 --- Set object property
 --- @param p StyleProp
 --- @param selector? integer
+--- @return Object
 ---
 function obj:set_style(p, selector)
 end
