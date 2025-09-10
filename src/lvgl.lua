@@ -296,6 +296,23 @@ lvgl.KEY = {
     END = 0,
 }
 
+--- @enum ColorFormat
+lvgl.COLOR_FORMAT = {
+	UNKNOWN = 0,
+	RAW = 0,
+	RAW_ALPHA = 0,
+	L8 = 0,
+	I1 = 0,
+	I2 = 0,
+	I4 = 0,
+	I8 = 0,
+	A8 = 0,
+	RGB565 = 0,
+	RGB888 = 0,
+	XRGB8888 = 0,
+	ARGB8888 = 0,
+}
+
 lvgl.ANIM_REPEAT_INFINITE = 0
 lvgl.ANIM_PLAYTIME_INFINITE = 0
 lvgl.SIZE_CONTENT = 0
@@ -837,6 +854,12 @@ end
 --- Get real postion of object relative to its parent
 --- @return Coords coords
 function obj:get_pos()
+end
+
+---
+--- Snapshot
+--- @param cf ColorFormat | nil
+function obj:snapshot(cf)
 end
 
 ---
