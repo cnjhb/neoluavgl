@@ -1315,8 +1315,8 @@ end
 --- Align parameter
 --- @class Align
 --- @field type ObjAlignType
---- @field x_ofs integer
---- @field y_ofs integer
+--- @field x_ofs? integer
+--- @field y_ofs? integer
 
 --- AlignTo parameter
 --- @class AlignToPara
