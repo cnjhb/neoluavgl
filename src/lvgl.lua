@@ -741,7 +741,7 @@ end
 
 ---
 --- remove style from object
---- @param s Style
+--- @param s Style | nil
 --- @param selector? integer
 --- @return nil
 function obj:remove_style(s, selector)
