@@ -515,6 +515,12 @@ obj = {}
 function obj:Object(property)
 end
 
+--- Create arc on object
+--- @param property? StyleProp
+--- @return Arc
+function obj:Arc(property)
+end
+
 ---
 --- Create calendar on object
 --- @param property? CalendarStyle
@@ -548,6 +554,13 @@ end
 --- @param property? LabelStyle
 --- @return Label
 function obj:Label(property)
+end
+
+---
+--- Create line on object
+--- @param property? StyleProp
+--- @return Line
+function obj:Line(property)
 end
 
 ---
