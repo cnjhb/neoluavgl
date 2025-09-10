@@ -367,6 +367,12 @@ end
 
 lvgl.Object = Object
 
+--- @param parent? Object | nil
+--- @param property? StyleProp
+--- @return Arc
+function lvgl.Arc(parent, property)
+end
+
 --- Create Calendar widget on parent
 --- @param parent? Object | nil
 --- @param property? StyleProp
@@ -861,6 +867,16 @@ end
 --- @param cf ColorFormat | nil
 function obj:snapshot(cf)
 end
+
+---
+--- Arc widget
+--- @class Arc:Object
+--- @field start_angle integer
+--- @field end_angle integer
+--- @field value integer
+--- @field min_value integer
+--- @field max_value integer
+local arc = {}
 
 ---
 --- Calendar widget
