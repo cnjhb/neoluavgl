@@ -30,9 +30,6 @@ static void obj_delete_cb(lv_event_t *e)
 #if (LUA_VERSION_NUM >= 502)
   lua_pushnil(L);
   lua_setuservalue(L, -2);
-#else
-  lua_pushglobaltable(L);
-  lua_setuservalue(L, -2);
 #endif
 
   luavgl_obj_t *lobj = luavgl_to_lobj(L, -1);
@@ -881,7 +878,7 @@ static int obj_property_user_data(lua_State *L, lv_obj_t *obj, bool set)
 #else
   if (set) {
     lua_getuservalue(L, 1);
-    lua_pushvalue(L, -1);
+    lua_pushvalue(L, -2);
     lua_rawseti(L, -2, 1);
   } else {
     lua_getuservalue(L, 1);
@@ -1000,7 +997,8 @@ static int obj_meta__index(lua_State *L)
     return ret;
   }
 
-  return luaL_error(L, "property not found: %s", key);
+  lua_pushnil(L);
+  return 1;
 }
 
 /**
