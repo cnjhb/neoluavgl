@@ -506,6 +506,7 @@ end
 ---
 --- Basic lvgl object
 --- @class Object
+--- @field user_data any
 obj = {}
 
 ---
