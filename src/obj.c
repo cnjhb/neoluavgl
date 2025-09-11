@@ -1,3 +1,4 @@
+#include "compat-5.3.h"
 #include "lua.h"
 #include "luavgl.h"
 #include "private.h"
@@ -30,6 +31,11 @@ static void obj_delete_cb(lv_event_t *e)
 #if (LUA_VERSION_NUM >= 502)
   lua_pushnil(L);
   lua_setuservalue(L, -2);
+#else
+  lua_getuservalue(L, -1);
+  lua_pushnil(L);
+  lua_rawseti(L, -2, 1);
+  lua_pop(L, 1);
 #endif
 
   luavgl_obj_t *lobj = luavgl_to_lobj(L, -1);
