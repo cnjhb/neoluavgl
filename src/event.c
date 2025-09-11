@@ -73,6 +73,8 @@ static int luavgl_obj_on_event(lua_State *L)
           return luaL_error(L, "Failed to remove event dsc: %d\n", res);
         }
 
+	lv_array_remove(&lobj->events, i);
+	lv_free(event);
         return 0;
       }
     }
