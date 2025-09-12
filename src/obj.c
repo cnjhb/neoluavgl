@@ -8,7 +8,6 @@
 #include "rotable.h"
 #include "style.c"
 #include "widgets/widgets.c"
-#include <src/misc/lv_event.h>
 
 #if LV_USE_SNAPSHOT
 #include "snapshot.c"
@@ -40,8 +39,6 @@ static void obj_delete_cb(lv_event_t *e)
 #endif
 
   luavgl_obj_t *lobj = luavgl_to_lobj(L, -1);
-  if (lobj->lua_created)
-    goto pop_exit;
 
   /* Clean its children firstly */
   luavgl_obj_clean(L);
@@ -61,6 +58,8 @@ static void obj_delete_cb(lv_event_t *e)
                                    .current_target = e->current_target,
                                    .code = LV_EVENT_DELETE});
     }
+
+    lv_obj_remove_event_dsc(e->current_target, event->dsc);
 
     luaL_unref(L, LUA_REGISTRYINDEX, event->ref);
     lv_free(event);
@@ -118,8 +117,6 @@ static int luavgl_obj_delete(lua_State *L)
 
     luavgl_obj_delete(L);
   }
-
-  luavgl_obj_remove_event_all(L, lobj);
 
   /* delete obj firstly, then cleanup memory */
   if (lobj->lua_created) {
