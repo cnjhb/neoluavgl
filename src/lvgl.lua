@@ -1051,6 +1051,7 @@ end
 ---
 --- Label widget
 ---@class Label: Object
+---@field text string
 ---
 local label = {}
 
