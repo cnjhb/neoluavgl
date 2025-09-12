@@ -359,7 +359,7 @@ end
     - when parent is nil, object is created on lvgl root.
     - property can be used to set any object style, like using `lv_obj_set_style`
 ]]
---- @param parent? Object | nil
+--- @param parent? Object | StyleProp
 --- @param property? StyleProp
 --- @return Object
 function Object(parent, property)
