@@ -8,6 +8,7 @@
 #include "rotable.h"
 #include "style.c"
 #include "widgets/widgets.c"
+#include <src/misc/lv_event.h>
 
 #if LV_USE_SNAPSHOT
 #include "snapshot.c"
@@ -53,6 +54,12 @@ static void obj_delete_cb(lv_event_t *e)
     event = events[i];
     if (event == NULL || event->dsc == NULL) {
       continue;
+    }
+
+    if (event->code == LV_EVENT_DELETE) {
+      event->dsc->cb(&(lv_event_t){.user_data = event,
+                                   .current_target = e->current_target,
+                                   .code = LV_EVENT_DELETE});
     }
 
     luaL_unref(L, LUA_REGISTRYINDEX, event->ref);
