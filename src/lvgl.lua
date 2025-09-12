@@ -409,7 +409,7 @@ lvgl.Image = Image
 
 ---
 --- Create Label on parent
---- @param parent? Object | nil
+--- @param parent? Object | LabelStyle
 --- @param property? LabelStyle
 --- @return Label
 function Label(parent, property)
