@@ -313,6 +313,19 @@ lvgl.COLOR_FORMAT = {
 	ARGB8888 = 0,
 }
 
+lvgl.TinyTTF = {
+}
+
+--- @param path string
+--- @param size integer
+--- @return lightuserdata
+function lvgl.TinyTTF.create(path, size)
+end
+
+--- @param font lightuserdata
+function lvgl.TinyTTF.destroy(font)
+end
+
 lvgl.ANIM_REPEAT_INFINITE = 0
 lvgl.ANIM_PLAYTIME_INFINITE = 0
 lvgl.SIZE_CONTENT = 0

@@ -16,6 +16,8 @@
 
 #include "rotable.c"
 
+#include "tiny_ttf.c"
+
 static const struct luaL_Reg luavgl_methods[] = {
     {"Timer", luavgl_timer_create}, /* timer.c */
     {"Font",  luavgl_font_create }, /* font.c */
@@ -104,6 +106,9 @@ LUALIB_API int luaopen_lvgl(lua_State *L)
   luavgl_ctx_t *ctx = luavgl_context(L);
 
   luaL_newlib(L, luavgl_methods);
+
+  luaL_newlib(L, luavgl_tinyttf_methods);
+  lua_setfield(L, -2, "TinyTTF");
 
   luaL_newmetatable(L, "root.meta");
   lua_pushstring(L, "__gc");
