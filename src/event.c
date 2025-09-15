@@ -65,17 +65,17 @@ static int luavgl_obj_send_event(lua_State *L)
     return 0;
   }
 
-  lv_event_code_t code = lua_tointeger(L, 2);
+  lv_event_code_t code = luaL_checkinteger(L, 2);
   void *param = NULL;
-  if (lua_isnoneornil(L, 3)) {
+  if (!lua_isnoneornil(L, 3)) {
     lua_pushlightuserdata(L, luavgl_obj_event_cb);
     lua_pushvalue(L, 3);
     lua_rawset(L, LUA_REGISTRYINDEX);
     param = luavgl_obj_event_cb;
   }
   lv_obj_send_event(obj, code, param);
-  lua_pushnil(L);
   lua_pushlightuserdata(L, luavgl_obj_event_cb);
+  lua_pushnil(L);
   lua_rawset(L, LUA_REGISTRYINDEX);
   return 0;
 }

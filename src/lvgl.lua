@@ -856,13 +856,19 @@ end
 
 ---
 --- Object event callback. `para` is not used for now.
---- @alias EventCallback fun(obj:Object, code: ObjEventCode): nil
+--- @alias EventCallback fun(obj:Object, code: ObjEventCode, param: any): nil
 ---
 --- set object event callback
 --- @param code ObjEventCode
 --- @param cb EventCallback
 --- @return nil
 function obj:onevent(code, cb)
+end
+
+---
+--- @param code ObjEventCode
+--- @param param any
+function obj:send_event(code, param)
 end
 
 ---
