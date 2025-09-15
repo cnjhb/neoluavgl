@@ -1463,7 +1463,7 @@ end
 ---
 
 --- Label style
---- @class LabelStyle :StyleProp
+--- @class LabelStyle :ObjectStyle
 --- @field text string
 
 
