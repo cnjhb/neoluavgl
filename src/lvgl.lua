@@ -1337,8 +1337,8 @@ end
 --- @class AlignToPara
 --- @field type ObjAlignType
 --- @field base Object
---- @field x_ofs integer
---- @field y_ofs integer
+--- @field x_ofs? integer
+--- @field y_ofs? integer
 
 --- Style properties
 --- @class StyleProp
