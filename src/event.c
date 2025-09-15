@@ -60,10 +60,6 @@ static int luavgl_obj_on_event(lua_State *L)
   }
 
   lv_event_code_t code = lua_tointeger(L, 2);
-  if (code >= LV_EVENT_LAST) {
-    luaL_argerror(L, 2, "event code illegal");
-    return 0;
-  }
 
   int size = lv_array_size(&lobj->events);
   struct event_callback_s *event = NULL;
