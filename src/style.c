@@ -45,9 +45,11 @@ static const struct style_map_s {
   style_type_t type;
 } g_style_map[] = {
     {"width",                LV_STYLE_WIDTH,                STYLE_TYPE_INT                       },
+    {"w",                    LV_STYLE_WIDTH,                STYLE_TYPE_INT                       },
     {"min_width",            LV_STYLE_MIN_WIDTH,            STYLE_TYPE_INT                       },
     {"max_width",            LV_STYLE_MAX_WIDTH,            STYLE_TYPE_INT                       },
     {"height",               LV_STYLE_HEIGHT,               STYLE_TYPE_INT                       },
+    {"h",                    LV_STYLE_HEIGHT,               STYLE_TYPE_INT                       },
     {"min_height",           LV_STYLE_MIN_HEIGHT,           STYLE_TYPE_INT                       },
     {"max_height",           LV_STYLE_MAX_HEIGHT,           STYLE_TYPE_INT                       },
     {"x",                    LV_STYLE_X,                    STYLE_TYPE_INT                       },

@@ -1063,8 +1063,7 @@ end
 
 ---
 --- Label widget
----@class Label: Object
----@field text string
+---@class Label: LabelStyle
 ---
 local label = {}
 
@@ -1347,6 +1346,7 @@ end
 --- @field min_width? integer
 --- @field max_width? integer
 --- @field height? integer
+--- @field h? integer
 --- @field min_height? integer
 --- @field max_height? integer
 --- @field x? integer
@@ -1439,16 +1439,11 @@ end
 
 --- Object style
 --- @class ObjectStyle :StyleProp
---- @field x integer
---- @field y integer
---- @field w integer
---- @field h integer
---- @field align Align | integer
---- @field align_to AlignToPara
---- @field scrollbar_mode ScrollbarMode
---- @field scroll_dir Dir
---- @field scroll_snap_x integer
---- @field scroll_snap_y integer
+--- @field align_to? AlignToPara
+--- @field scrollbar_mode? ScrollbarMode
+--- @field scroll_dir? Dir
+--- @field scroll_snap_x? integer
+--- @field scroll_snap_y? integer
 ---
 
 --- Image style
