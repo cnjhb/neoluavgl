@@ -44,8 +44,40 @@ static void luavgl_obj_event_cb(lv_event_t *e)
 
   lua_pushinteger(L, e->code);
 
-  /* args: obj, code */
-  luavgl_pcall_int(L, 2, 0);
+  if (e->param == luavgl_obj_event_cb) {
+    lua_pushlightuserdata(L, luavgl_obj_event_cb);
+    lua_rawget(L, LUA_REGISTRYINDEX);
+  } else {
+    lua_pushnil(L);
+  }
+
+  /* args: obj, code,param */
+  luavgl_pcall_int(L, 3, 0);
+}
+
+static int luavgl_obj_send_event(lua_State *L)
+{
+  luavgl_obj_t *lobj = luavgl_to_lobj(L, 1);
+
+  lv_obj_t *obj = lobj->obj;
+  if (obj == NULL) {
+    luaL_argerror(L, 1, "expect obj userdata.\n");
+    return 0;
+  }
+
+  lv_event_code_t code = lua_tointeger(L, 2);
+  void *param = NULL;
+  if (lua_isnoneornil(L, 3)) {
+    lua_pushlightuserdata(L, luavgl_obj_event_cb);
+    lua_pushvalue(L, 3);
+    lua_rawset(L, LUA_REGISTRYINDEX);
+    param = luavgl_obj_event_cb;
+  }
+  lv_obj_send_event(obj, code, param);
+  lua_pushnil(L);
+  lua_pushlightuserdata(L, luavgl_obj_event_cb);
+  lua_rawset(L, LUA_REGISTRYINDEX);
+  return 0;
 }
 
 /* obj:onevent(luavgl.EVENT.PRESSED, function(code, value) -- end) */

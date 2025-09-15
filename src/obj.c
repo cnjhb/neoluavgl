@@ -958,6 +958,7 @@ static const rotable_Reg luavgl_obj_methods[] = {
     {"get_child_by_id",          LUA_TFUNCTION,      {luavgl_obj_get_child_by_id}         },
 
     {"onevent",                  LUA_TFUNCTION,      {luavgl_obj_on_event}                },
+    {"send_event",               LUA_TFUNCTION,      {luavgl_obj_send_event}              },
     {"onPressed",                LUA_TFUNCTION,      {luavgl_obj_on_pressed}              },
     {"onClicked",                LUA_TFUNCTION,      {luavgl_obj_on_clicked}              },
     {"onShortClicked",           LUA_TFUNCTION,      {luavgl_obj_on_short_clicked}        },
