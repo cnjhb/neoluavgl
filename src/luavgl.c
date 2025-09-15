@@ -109,6 +109,8 @@ LUALIB_API int luaopen_lvgl(lua_State *L)
 
   luaL_newlib(L, luavgl_tinyttf_methods);
   lua_setfield(L, -2, "TinyTTF");
+  luaL_newlib(L, luavgl_event_methods);
+  lua_setfield(L, -2, "Event");
 
   luaL_newmetatable(L, "root.meta");
   lua_pushstring(L, "__gc");

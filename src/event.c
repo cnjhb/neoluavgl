@@ -1,6 +1,18 @@
 #include "luavgl.h"
 #include "private.h"
 
+static int luavgl_event_register_id(lua_State *L)
+{
+  int code = lv_event_register_id();
+  lua_pushinteger(L, code);
+  return 1;
+}
+
+static const struct luaL_Reg luavgl_event_methods[] = {
+    {"register_id", luavgl_event_register_id},
+    {}
+};
+
 static void luavgl_obj_event_cb(lv_event_t *e)
 {
   struct event_callback_s *event = e->user_data;
@@ -73,8 +85,8 @@ static int luavgl_obj_on_event(lua_State *L)
           return luaL_error(L, "Failed to remove event dsc: %d\n", res);
         }
 
-	lv_array_remove(&lobj->events, i);
-	lv_free(event);
+        lv_array_remove(&lobj->events, i);
+        lv_free(event);
         return 0;
       }
     }

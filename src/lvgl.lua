@@ -326,6 +326,13 @@ end
 function lvgl.TinyTTF.destroy(font)
 end
 
+lvgl.Event = {
+}
+
+--- @return ObjEventCode
+function lvgl.Event.register_id()
+end
+
 lvgl.ANIM_REPEAT_INFINITE = 0
 lvgl.ANIM_PLAYTIME_INFINITE = 0
 lvgl.SIZE_CONTENT = 0
