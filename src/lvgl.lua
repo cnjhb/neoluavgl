@@ -518,7 +518,7 @@ end
 
 ---
 --- Basic lvgl object
---- @class Object : StyleProp
+--- @class Object : ObjectStyle
 --- @field user_data any
 obj = {}
 
