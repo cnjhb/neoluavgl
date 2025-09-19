@@ -9,291 +9,291 @@ lvgl = {}
 
 --- @enum ObjEventCode
 lvgl.EVENT = {
-    ALL = 0,
-    PRESSED = 0,
-    PRESSING = 0,
-    PRESS_LOST = 0,
-    SHORT_CLICKED = 0,
-    LONG_PRESSED = 0,
-    LONG_PRESSED_REPEAT = 0,
-    CLICKED = 0,
-    RELEASED = 0,
-    SCROLL_BEGIN = 0,
-    SCROLL_END = 0,
-    SCROLL = 0,
-    GESTURE = 0,
-    KEY = 0,
-    FOCUSED = 0,
-    DEFOCUSED = 0,
-    LEAVE = 0,
-    HIT_TEST = 0,
-    COVER_CHECK = 0,
-    REFR_EXT_DRAW_SIZE = 0,
-    DRAW_MAIN_BEGIN = 0,
-    DRAW_MAIN = 0,
-    DRAW_MAIN_END = 0,
-    DRAW_POST_BEGIN = 0,
-    DRAW_POST = 0,
-    DRAW_POST_END = 0,
-    DRAW_PART_BEGIN = 0,
-    DRAW_PART_END = 0,
-    VALUE_CHANGED = 0,
-    INSERT = 0,
-    REFRESH = 0,
-    READY = 0,
-    CANCEL = 0,
-    DELETE = 0,
-    CHILD_CHANGED = 0,
-    CHILD_CREATED = 0,
-    CHILD_DELETED = 0,
-    SCREEN_UNLOAD_START = 0,
-    SCREEN_LOAD_START = 0,
-    SCREEN_LOADED = 0,
-    SCREEN_UNLOADED = 0,
-    SIZE_CHANGED = 0,
-    STYLE_CHANGED = 0,
-    LAYOUT_CHANGED = 0,
-    GET_SELF_SIZE = 0,
+	ALL = 0,
+	PRESSED = 0,
+	PRESSING = 0,
+	PRESS_LOST = 0,
+	SHORT_CLICKED = 0,
+	LONG_PRESSED = 0,
+	LONG_PRESSED_REPEAT = 0,
+	CLICKED = 0,
+	RELEASED = 0,
+	SCROLL_BEGIN = 0,
+	SCROLL_END = 0,
+	SCROLL = 0,
+	GESTURE = 0,
+	KEY = 0,
+	FOCUSED = 0,
+	DEFOCUSED = 0,
+	LEAVE = 0,
+	HIT_TEST = 0,
+	COVER_CHECK = 0,
+	REFR_EXT_DRAW_SIZE = 0,
+	DRAW_MAIN_BEGIN = 0,
+	DRAW_MAIN = 0,
+	DRAW_MAIN_END = 0,
+	DRAW_POST_BEGIN = 0,
+	DRAW_POST = 0,
+	DRAW_POST_END = 0,
+	DRAW_PART_BEGIN = 0,
+	DRAW_PART_END = 0,
+	VALUE_CHANGED = 0,
+	INSERT = 0,
+	REFRESH = 0,
+	READY = 0,
+	CANCEL = 0,
+	DELETE = 0,
+	CHILD_CHANGED = 0,
+	CHILD_CREATED = 0,
+	CHILD_DELETED = 0,
+	SCREEN_UNLOAD_START = 0,
+	SCREEN_LOAD_START = 0,
+	SCREEN_LOADED = 0,
+	SCREEN_UNLOADED = 0,
+	SIZE_CHANGED = 0,
+	STYLE_CHANGED = 0,
+	LAYOUT_CHANGED = 0,
+	GET_SELF_SIZE = 0,
 }
 
 --- object flag for obj:add_flag obj:clear_flag
 --- @enum ObjFlag
 lvgl.FLAG = {
-    PRESSED = 0,
-    HIDDEN = 0,
-    CLICKABLE = 0,
-    CLICK_FOCUSABLE = 0,
-    CHECKABLE = 0,
-    SCROLLABLE = 0,
-    SCROLL_ELASTIC = 0,
-    SCROLL_MOMENTUM = 0,
-    SCROLL_ONE = 0,
-    SCROLL_CHAIN_HOR = 0,
-    SCROLL_CHAIN_VER = 0,
-    SCROLL_CHAIN = 0,
-    SCROLL_ON_FOCUS = 0,
-    SCROLL_WITH_ARROW = 0,
-    SNAPPABLE = 0,
-    PRESS_LOCK = 0,
-    EVENT_BUBBLE = 0,
-    GESTURE_BUBBLE = 0,
-    ADV_HITTEST = 0,
-    IGNORE_LAYOUT = 0,
-    FLOATING = 0,
-    OVERFLOW_VISIBLE = 0,
-    LAYOUT_1 = 0,
-    LAYOUT_2 = 0,
-    WIDGET_1 = 0,
-    WIDGET_2 = 0,
-    USER_1 = 0,
-    USER_2 = 0,
-    USER_3 = 0,
-    USER_4 = 0,
+	PRESSED = 0,
+	HIDDEN = 0,
+	CLICKABLE = 0,
+	CLICK_FOCUSABLE = 0,
+	CHECKABLE = 0,
+	SCROLLABLE = 0,
+	SCROLL_ELASTIC = 0,
+	SCROLL_MOMENTUM = 0,
+	SCROLL_ONE = 0,
+	SCROLL_CHAIN_HOR = 0,
+	SCROLL_CHAIN_VER = 0,
+	SCROLL_CHAIN = 0,
+	SCROLL_ON_FOCUS = 0,
+	SCROLL_WITH_ARROW = 0,
+	SNAPPABLE = 0,
+	PRESS_LOCK = 0,
+	EVENT_BUBBLE = 0,
+	GESTURE_BUBBLE = 0,
+	ADV_HITTEST = 0,
+	IGNORE_LAYOUT = 0,
+	FLOATING = 0,
+	OVERFLOW_VISIBLE = 0,
+	LAYOUT_1 = 0,
+	LAYOUT_2 = 0,
+	WIDGET_1 = 0,
+	WIDGET_2 = 0,
+	USER_1 = 0,
+	USER_2 = 0,
+	USER_3 = 0,
+	USER_4 = 0,
 }
 
 --- @enum ObjState
 lvgl.STATE = {
-    DEFAULT = 0,
-    CHECKED = 0,
-    FOCUSED = 0,
-    FOCUS_KEY = 0,
-    EDITED = 0,
-    HOVERED = 0,
-    PRESSED = 0,
-    SCROLLED = 0,
-    DISABLED = 0,
-    USER_1 = 0,
-    USER_2 = 0,
-    USER_3 = 0,
-    USER_4 = 0,
-    ANY = 0,
+	DEFAULT = 0,
+	CHECKED = 0,
+	FOCUSED = 0,
+	FOCUS_KEY = 0,
+	EDITED = 0,
+	HOVERED = 0,
+	PRESSED = 0,
+	SCROLLED = 0,
+	DISABLED = 0,
+	USER_1 = 0,
+	USER_2 = 0,
+	USER_3 = 0,
+	USER_4 = 0,
+	ANY = 0,
 }
 
 --- @enum ObjPart
 lvgl.PART = {
-    MAIN = 0,
-    SCROLLBAR = 0,
-    INDICATOR = 0,
-    KNOB = 0,
-    SELECTOR = 0,
-    ITEMS = 0,
-    CURSOR = 0,
-    CURSOR_FIRST = 0,
-    ANY = 0 ,
+	MAIN = 0,
+	SCROLLBAR = 0,
+	INDICATOR = 0,
+	KNOB = 0,
+	SELECTOR = 0,
+	ITEMS = 0,
+	CURSOR = 0,
+	CURSOR_FIRST = 0,
+	ANY = 0,
 }
 
 --- @enum ObjAlignType
 lvgl.ALIGN = {
-    DEFAULT = 0,
-    TOP_LEFT = 0,
-    TOP_MID = 0,
-    TOP_RIGHT = 0,
-    BOTTOM_LEFT = 0,
-    BOTTOM_MID = 0,
-    BOTTOM_RIGHT = 0,
-    LEFT_MID = 0,
-    RIGHT_MID = 0,
-    CENTER = 0,
-    OUT_TOP_LEFT = 0,
-    OUT_TOP_MID = 0,
-    OUT_TOP_RIGHT = 0,
-    OUT_BOTTOM_LEFT = 0,
-    OUT_BOTTOM_MID = 0,
-    OUT_BOTTOM_RIGHT = 0,
-    OUT_LEFT_TOP = 0,
-    OUT_LEFT_MID = 0,
-    OUT_LEFT_BOTTOM = 0,
-    OUT_RIGHT_TOP = 0,
-    OUT_RIGHT_MID = 0,
-    OUT_RIGHT_BOTTOM = 0,
+	DEFAULT = 0,
+	TOP_LEFT = 0,
+	TOP_MID = 0,
+	TOP_RIGHT = 0,
+	BOTTOM_LEFT = 0,
+	BOTTOM_MID = 0,
+	BOTTOM_RIGHT = 0,
+	LEFT_MID = 0,
+	RIGHT_MID = 0,
+	CENTER = 0,
+	OUT_TOP_LEFT = 0,
+	OUT_TOP_MID = 0,
+	OUT_TOP_RIGHT = 0,
+	OUT_BOTTOM_LEFT = 0,
+	OUT_BOTTOM_MID = 0,
+	OUT_BOTTOM_RIGHT = 0,
+	OUT_LEFT_TOP = 0,
+	OUT_LEFT_MID = 0,
+	OUT_LEFT_BOTTOM = 0,
+	OUT_RIGHT_TOP = 0,
+	OUT_RIGHT_MID = 0,
+	OUT_RIGHT_BOTTOM = 0,
 }
 
 --- @enum BuiltinFont
 lvgl.BUILTIN_FONT = {
-    MONTSERRAT_8 = 0,
-    MONTSERRAT_10 = 0,
-    MONTSERRAT_12 = 0,
-    MONTSERRAT_14 = 0,
-    MONTSERRAT_16 = 0,
-    MONTSERRAT_18 = 0,
-    MONTSERRAT_20 = 0,
-    MONTSERRAT_22 = 0,
-    MONTSERRAT_24 = 0,
-    MONTSERRAT_26 = 0,
-    MONTSERRAT_28 = 0,
-    MONTSERRAT_30 = 0,
-    MONTSERRAT_32 = 0,
-    MONTSERRAT_34 = 0,
-    MONTSERRAT_36 = 0,
-    MONTSERRAT_38 = 0,
-    MONTSERRAT_40 = 0,
-    MONTSERRAT_42 = 0,
-    MONTSERRAT_44 = 0,
-    MONTSERRAT_46 = 0,
-    MONTSERRAT_48 = 0,
-    MONTSERRAT_12_SUBPX = 0,
-    MONTSERRAT_28_COMPRESSED = 0,
-    DEJAVU_16_PERSIAN_HEBREW = 0,
-    SIMSUN_16_CJK = 0,
-    UNSCII_8 = 0,
-    UNSCII_16 = 0,
+	MONTSERRAT_8 = 0,
+	MONTSERRAT_10 = 0,
+	MONTSERRAT_12 = 0,
+	MONTSERRAT_14 = 0,
+	MONTSERRAT_16 = 0,
+	MONTSERRAT_18 = 0,
+	MONTSERRAT_20 = 0,
+	MONTSERRAT_22 = 0,
+	MONTSERRAT_24 = 0,
+	MONTSERRAT_26 = 0,
+	MONTSERRAT_28 = 0,
+	MONTSERRAT_30 = 0,
+	MONTSERRAT_32 = 0,
+	MONTSERRAT_34 = 0,
+	MONTSERRAT_36 = 0,
+	MONTSERRAT_38 = 0,
+	MONTSERRAT_40 = 0,
+	MONTSERRAT_42 = 0,
+	MONTSERRAT_44 = 0,
+	MONTSERRAT_46 = 0,
+	MONTSERRAT_48 = 0,
+	MONTSERRAT_12_SUBPX = 0,
+	MONTSERRAT_28_COMPRESSED = 0,
+	DEJAVU_16_PERSIAN_HEBREW = 0,
+	SIMSUN_16_CJK = 0,
+	UNSCII_8 = 0,
+	UNSCII_16 = 0,
 }
 
 --- @enum LABEL
 lvgl.LABEL = {
-    LONG_WRAP = 0,
-    LONG_DOT = 0,
-    LONG_SCROLL = 0,
-    LONG_SCROLL_CIRCULAR = 0,
-    LONG_CLIP = 0,
+	LONG_WRAP = 0,
+	LONG_DOT = 0,
+	LONG_SCROLL = 0,
+	LONG_SCROLL_CIRCULAR = 0,
+	LONG_CLIP = 0,
 }
 
 --- @enum SCR_LOAD_ANIM
 lvgl.SCR_LOAD_ANIM = {
-    NONE = 0,
-    OVER_LEFT = 0,
-    OVER_RIGHT = 0,
-    OVER_TOP = 0,
-    OVER_BOTTOM = 0,
-    MOVE_LEFT = 0,
-    MOVE_RIGHT = 0,
-    MOVE_TOP = 0,
-    MOVE_BOTTOM = 0,
-    FADE_IN = 0,
-    FADE_ON = 0,
-    FADE_OUT = 0,
-    OUT_LEFT = 0,
-    OUT_RIGHT = 0,
-    OUT_TOP = 0,
-    OUT_BOTTOM = 0,
+	NONE = 0,
+	OVER_LEFT = 0,
+	OVER_RIGHT = 0,
+	OVER_TOP = 0,
+	OVER_BOTTOM = 0,
+	MOVE_LEFT = 0,
+	MOVE_RIGHT = 0,
+	MOVE_TOP = 0,
+	MOVE_BOTTOM = 0,
+	FADE_IN = 0,
+	FADE_ON = 0,
+	FADE_OUT = 0,
+	OUT_LEFT = 0,
+	OUT_RIGHT = 0,
+	OUT_TOP = 0,
+	OUT_BOTTOM = 0,
 }
 
 --- @enum ScrollbarMode
 lvgl.SCROLLBAR_MODE = {
-    OFF = 0,
-    ON = 0,
-    ACTIVE = 0,
-    AUTO = 0,
+	OFF = 0,
+	ON = 0,
+	ACTIVE = 0,
+	AUTO = 0,
 }
 
 --- @enum Dir
 lvgl.DIR = {
-    NONE = 0,
-    LEFT = 0,
-    RIGHT = 0,
-    TOP = 0,
-    BOTTOM = 0,
-    HOR = 0,
-    VER = 0,
-    ALL = 0,
+	NONE = 0,
+	LEFT = 0,
+	RIGHT = 0,
+	TOP = 0,
+	BOTTOM = 0,
+	HOR = 0,
+	VER = 0,
+	ALL = 0,
 }
 
 --- @enum KeyboardMode
 lvgl.KEYBOARD_MODE = {
-    TEXT_LOWER = 0,
-    TEXT_UPPER = 0,
-    SPECIAL = 0,
-    NUMBER = 0,
-    USER_1 = 0,
-    USER_2 = 0,
-    USER_3 = 0,
-    USER_4 = 0,
-    TEXT_ARABIC = 0,
+	TEXT_LOWER = 0,
+	TEXT_UPPER = 0,
+	SPECIAL = 0,
+	NUMBER = 0,
+	USER_1 = 0,
+	USER_2 = 0,
+	USER_3 = 0,
+	USER_4 = 0,
+	TEXT_ARABIC = 0,
 }
 
 --- @enum FlexFlow
 lvgl.FLEX_FLOW = {
-    ROW = 0,
-    COLUMN = 0,
-    ROW_WRAP = 0,
-    ROW_REVERSE = 0,
-    ROW_WRAP_REVERSE = 0,
-    COLUMN_WRAP = 0,
-    COLUMN_REVERSE = 0,
-    COLUMN_WRAP_REVERSE = 0,
+	ROW = 0,
+	COLUMN = 0,
+	ROW_WRAP = 0,
+	ROW_REVERSE = 0,
+	ROW_WRAP_REVERSE = 0,
+	COLUMN_WRAP = 0,
+	COLUMN_REVERSE = 0,
+	COLUMN_WRAP_REVERSE = 0,
 }
 
 --- @enum FlexAlign
 lvgl.FLEX_ALIGN = {
-    START = 0,
-    END = 0,
-    CENTER = 0,
-    SPACE_EVENLY = 0,
-    SPACE_AROUND = 0,
-    SPACE_BETWEEN = 0,
+	START = 0,
+	END = 0,
+	CENTER = 0,
+	SPACE_EVENLY = 0,
+	SPACE_AROUND = 0,
+	SPACE_BETWEEN = 0,
 }
 
 --- @enum GridAlign
 lvgl.GRID_ALIGN = {
-    START = 0,
-    CENTER = 0,
-    END = 0,
-    STRETCH = 0,
-    SPACE_EVENLY = 0,
-    SPACE_AROUND = 0,
-    SPACE_BETWEEN = 0,
+	START = 0,
+	CENTER = 0,
+	END = 0,
+	STRETCH = 0,
+	SPACE_EVENLY = 0,
+	SPACE_AROUND = 0,
+	SPACE_BETWEEN = 0,
 }
 
 --- @enum RollerMode
 lvgl.ROLLER_MODE = {
-    NORMAL = 0,
-    INFINITE = 0,
+	NORMAL = 0,
+	INFINITE = 0,
 }
 
 --- @enum KEY
 lvgl.KEY = {
-    UP = 0,
-    DOWN = 0,
-    RIGHT = 0,
-    LEFT = 0,
-    ESC = 0,
-    DEL = 0,
-    BACKSPACE = 0,
-    ENTER = 0,
-    NEXT = 0,
-    PREV = 0,
-    HOME = 0,
-    END = 0,
+	UP = 0,
+	DOWN = 0,
+	RIGHT = 0,
+	LEFT = 0,
+	ESC = 0,
+	DEL = 0,
+	BACKSPACE = 0,
+	ENTER = 0,
+	NEXT = 0,
+	PREV = 0,
+	HOME = 0,
+	END = 0,
 }
 
 --- @enum ColorFormat
@@ -388,7 +388,7 @@ end
 lvgl.Object = Object
 
 --- @param parent? Object | nil
---- @param property? StyleProp
+--- @param property? ArcStyle
 --- @return Arc
 function lvgl.Arc(parent, property)
 end
@@ -399,7 +399,6 @@ end
 --- @return Calendar
 function lvgl.Calendar(parent, property)
 end
-
 
 ---
 --- Create Label on parent
@@ -437,7 +436,7 @@ end
 
 lvgl.Label = Label
 
---- 
+---
 --- Create Line on parent
 --- @param parent? Object | nil
 --- @param property? StyleProp
@@ -460,7 +459,6 @@ end
 --- @return Keyboard
 function lvgl.Keyboard(parent, property)
 end
-
 
 ---
 --- Create Led Widget on parent
@@ -612,13 +610,13 @@ end
 function obj:List(property)
 end
 
-
 ---
 --- Create Roller Widget on parent
 --- @param property? RollerStyle
 --- @return Roller
 function obj:Roller(parent, property)
 end
+
 ---
 --- Set object property
 --- @param p StyleProp
@@ -919,18 +917,13 @@ end
 
 ---
 --- Arc widget
---- @class Arc:Object
---- @field start_angle integer
---- @field end_angle integer
---- @field value integer
---- @field min_value integer
---- @field max_value integer
+--- @class Arc:Object,ArcStyle
 local arc = {}
 
 --- rotate obj to angle
 --- @param obj Object
 --- @param r_offset integer
-function arc:rotate_obj_to_angle(obj,r_offset)
+function arc:rotate_obj_to_angle(obj, r_offset)
 end
 
 ---
@@ -1458,6 +1451,16 @@ end
 --- @field scroll_snap_x? integer
 --- @field scroll_snap_y? integer
 ---
+
+--- @class ArcStyle :ObjectStyle
+--- @field bg_start_angle? integer
+--- @field bg_end_angle? integer
+--- @field rotation? integer
+--- @field start_angle integer
+--- @field end_angle integer
+--- @field value integer
+--- @field min_value integer
+--- @field max_value integer
 
 --- Image style
 --- @class ImageStyle :StyleProp
