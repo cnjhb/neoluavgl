@@ -1456,11 +1456,11 @@ end
 --- @field bg_start_angle? integer
 --- @field bg_end_angle? integer
 --- @field rotation? integer
---- @field start_angle integer
---- @field end_angle integer
---- @field value integer
---- @field min_value integer
---- @field max_value integer
+--- @field start_angle? integer
+--- @field end_angle? integer
+--- @field value? integer
+--- @field min_value? integer
+--- @field max_value? integer
 
 --- Image style
 --- @class ImageStyle :StyleProp
