@@ -318,11 +318,11 @@ lvgl.TinyTTF = {
 
 --- @param path string
 --- @param size integer
---- @return lightuserdata
+--- @return Font
 function lvgl.TinyTTF.create(path, size)
 end
 
---- @param font lightuserdata
+--- @param font Font
 function lvgl.TinyTTF.destroy(font)
 end
 
