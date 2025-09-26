@@ -1,5 +1,6 @@
 
 #include <lvgl.h>
+#include <src/misc/lv_style.h>
 
 #include "rotable.h"
 
@@ -596,6 +597,17 @@ static const rotable_Reg color_format_const_table[] = {
     {0,                   0                                   },
 };
 
+static const rotable_Reg border_side_const_table[] = {
+    {.name = "NONE", .integer = LV_BORDER_SIDE_NONE},
+    {.name = "BOTTOM", .integer = LV_BORDER_SIDE_BOTTOM},
+    {.name = "TOP", .integer = LV_BORDER_SIDE_TOP},
+    {.name = "LEFT", .integer = LV_BORDER_SIDE_LEFT},
+    {.name = "RIGHT", .integer = LV_BORDER_SIDE_RIGHT},
+    {.name = "FULL", .integer = LV_BORDER_SIDE_FULL},
+    {.name = "INTERNAL", .integer = LV_BORDER_SIDE_INTERNAL},
+    {},
+};
+
 static int luavgl_LV_PCT(lua_State *L)
 {
   int pct = lua_tointeger(L, 1);
@@ -655,6 +667,7 @@ static void luavgl_constants_init(lua_State *L)
 #endif
   rotable_setfiled(L, -2, "KEY", key_const_table);
   rotable_setfiled(L, -2, "COLOR_FORMAT", color_format_const_table);
+  rotable_setfiled(L, -2, "BORDER_SIDE", border_side_const_table);
   /* miscellaneous. */
 
   lua_pushinteger(L, LV_ANIM_REPEAT_INFINITE);

@@ -313,6 +313,17 @@ lvgl.COLOR_FORMAT = {
 	ARGB8888 = 0,
 }
 
+--- @enum BorderSide
+lvgl.BORDER_SIDE = {
+	NONE = 0,
+	BOTTOM = 0,
+	TOP = 0,
+	LEFT = 0,
+	RIGHT = 0,
+	FULL = 0,
+	INTERNAL = 0,
+}
+
 lvgl.TinyTTF = {
 }
 
