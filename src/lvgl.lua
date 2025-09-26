@@ -1080,7 +1080,7 @@ end
 
 ---
 --- Label widget
----@class Label: LabelStyle
+---@class Label: LabelStyle,Object
 ---
 local label = {}
 
