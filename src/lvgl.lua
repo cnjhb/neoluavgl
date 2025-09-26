@@ -1403,7 +1403,7 @@ end
 --- @field border_color? integer | string
 --- @field border_opa? integer
 --- @field border_width? integer
---- @field border_side? integer
+--- @field border_side? integer | BorderSide
 --- @field border_post? integer
 --- @field outline_width? integer
 --- @field outline_color? integer | string
