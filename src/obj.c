@@ -662,6 +662,22 @@ static int luavgl_obj_remove_anim_all(lua_State *L)
   return 1;
 }
 
+static int luavgl_obj_has_class(lua_State *L)
+{
+  lv_obj_t *obj = luavgl_to_obj(L, 1);
+  const char *cls_name = luaL_checkstring(L, 2);
+  const lv_obj_class_t *cls = lv_obj_get_class(obj);
+  while (cls) {
+    if (strcmp(cls->name, cls_name) == 0) {
+      lua_pushboolean(L, true);
+      return 1;
+    }
+    cls = cls->base_class;
+  }
+  lua_pushboolean(L, false);
+  return 1;
+}
+
 /**
  * Use lvgl property API to get or set property.
  * stack layout:
@@ -969,6 +985,7 @@ static const rotable_Reg luavgl_obj_methods[] = {
 #if LV_USE_SNAPSHOT
     {"snapshot",                 LUA_TFUNCTION,      {luavgl_obj_snapshot}                },
 #endif
+    {"has_class",                LUA_TFUNCTION,      {luavgl_obj_has_class}               },
     {0,                          0,                  {0}                                  },
 };
 

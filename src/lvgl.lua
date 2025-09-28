@@ -324,6 +324,8 @@ lvgl.BORDER_SIDE = {
 	INTERNAL = 0,
 }
 
+--- @alias ClassName "lv_obj" | "lv_arc" | "lv_label"
+
 lvgl.TinyTTF = {
 }
 
@@ -924,6 +926,10 @@ end
 --- Snapshot
 --- @param cf ColorFormat | nil
 function obj:snapshot(cf)
+end
+
+--- @param cls_name ClassName
+function obj:has_class(cls_name)
 end
 
 ---
