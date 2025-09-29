@@ -929,7 +929,12 @@ function obj:snapshot(cf)
 end
 
 --- @param cls_name ClassName
+--- @return boolean
 function obj:has_class(cls_name)
+end
+
+--- @return ClassName
+function obj:get_class_name()
 end
 
 ---

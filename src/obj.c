@@ -678,6 +678,14 @@ static int luavgl_obj_has_class(lua_State *L)
   return 1;
 }
 
+static int luavgl_obj_get_class_name(lua_State *L)
+{
+  lv_obj_t *obj = luavgl_to_obj(L, 1);
+  const lv_obj_class_t *cls = lv_obj_get_class(obj);
+  lua_pushstring(L, cls->name);
+  return 1;
+}
+
 /**
  * Use lvgl property API to get or set property.
  * stack layout:
@@ -986,6 +994,7 @@ static const rotable_Reg luavgl_obj_methods[] = {
     {"snapshot",                 LUA_TFUNCTION,      {luavgl_obj_snapshot}                },
 #endif
     {"has_class",                LUA_TFUNCTION,      {luavgl_obj_has_class}               },
+    {"get_class_name",           LUA_TFUNCTION,      {luavgl_obj_get_class_name}          },
     {0,                          0,                  {0}                                  },
 };
 
