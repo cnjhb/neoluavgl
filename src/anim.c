@@ -127,6 +127,7 @@ static const luavgl_value_setter_t anim_property_table[] = {
     { "playback_delay", 0, { .setter = (setter_int_t)lv_anim_set_playback_delay } },
     { "path", SETTER_TYPE_STACK, { .setter_stack = _lv_anim_set_path } },
     { "exec_cb", SETTER_TYPE_STACK, { .setter_stack = _lv_dummy_set } },
+    { "done_cb", SETTER_TYPE_STACK, { .setter_stack = _lv_dummy_set } },
 };
 
 /* clang-format on */
