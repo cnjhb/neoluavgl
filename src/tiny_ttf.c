@@ -15,8 +15,11 @@ static int luavgl_tinyttf_create(lua_State *L)
   const char *path = luaL_checkstring(L, 1);
   int font_size = luaL_checkinteger(L, 2);
   lv_font_t *font = lv_tiny_ttf_create_file(path, font_size);
-  lua_pushlightuserdata(L, font);
-  return 1;
+  if (font) {
+    lua_pushlightuserdata(L, font);
+    return 1;
+  }
+  return 0;
 }
 
 static const struct luaL_Reg luavgl_tinyttf_methods[] = {
