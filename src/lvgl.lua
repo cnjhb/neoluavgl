@@ -878,7 +878,7 @@ end
 
 ---
 --- @param code ObjEventCode
---- @param param any
+--- @param param? any
 function obj:send_event(code, param)
 end
 
