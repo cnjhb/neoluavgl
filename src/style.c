@@ -143,6 +143,8 @@ static const struct style_map_s {
     {"pad_ver",              LV_STYLE_PAD_VER,              STYLE_TYPE_SPECIAL | STYLE_TYPE_INT  },
     {"pad_hor",              LV_STYLE_PAD_HOR,              STYLE_TYPE_SPECIAL | STYLE_TYPE_INT  },
 
+    {"bitmap_mask_src",      LV_STYLE_BITMAP_MASK_SRC,      STYLE_TYPE_POINTER                   },
+
     /* styles for layout */
     {"flex",                 _LV_STYLE_FLEX,                STYLE_TYPE_SPECIAL | STYLE_TYPE_TABLE},
     {"flex_flow",            _LV_STYLE_FLEX_FLOW,           STYLE_TYPE_SPECIAL | STYLE_TYPE_INT  },

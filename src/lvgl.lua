@@ -339,6 +339,15 @@ end
 function lvgl.TinyTTF.destroy(font)
 end
 
+--- @alias DrawBuf lightuserdata
+
+lvgl.DrawBuf = {
+}
+
+--- @param buf DrawBuf
+function lvgl.DrawBuf.destroy(buf)
+end
+
 lvgl.Event = {
 }
 
@@ -925,6 +934,7 @@ end
 ---
 --- Snapshot
 --- @param cf ColorFormat | nil
+--- @return DrawBuf
 function obj:snapshot(cf)
 end
 
@@ -1399,6 +1409,7 @@ end
 --- @field pad_row? integer
 --- @field pad_column? integer
 --- @field pad_gap? integer
+--- @field bitmap_mask_src? string | DrawBuf
 --- @field bg_color? integer | string text color in hex integer or #RGB or #RRGGBB format
 --- @field bg_opa? integer
 --- @field bg_grad_color? integer
