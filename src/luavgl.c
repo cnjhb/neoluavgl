@@ -111,6 +111,8 @@ LUALIB_API int luaopen_lvgl(lua_State *L)
   lua_setfield(L, -2, "TinyTTF");
   luaL_newlib(L, luavgl_event_methods);
   lua_setfield(L, -2, "Event");
+  luaL_newlib(L, luavgl_draw_buf_methods);
+  lua_setfield(L, -2, "DrawBuf");
 
   luaL_newmetatable(L, "root.meta");
   lua_pushstring(L, "__gc");
@@ -155,7 +157,6 @@ LUALIB_API int luaopen_lvgl(lua_State *L)
   luavgl_disp_init(L);
   luavgl_palette_init(L);
   luavgl_constants_init(L);
-  luavgl_draw_buf_init(L);
 
   /* Methods to create widget locate in widgets table, check `luavgl_obj_init`
    */

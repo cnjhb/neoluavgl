@@ -1,6 +1,5 @@
+#include "lua.h"
 #include "luavgl.h"
-
-static int luavgl_draw_buf_create(lua_State *L, lv_draw_buf_t *buf);
 
 static int luavgl_obj_snapshot(lua_State *L)
 {
@@ -11,5 +10,9 @@ static int luavgl_obj_snapshot(lua_State *L)
     cf = (lv_color_format_t)lua_tointeger(L, 2);
   }
   lv_draw_buf_t *buf = lv_snapshot_take(lobj->obj, cf);
-  return luavgl_draw_buf_create(L, buf);
+  if (buf) {
+    lua_pushlightuserdata(L, buf);
+    return 1;
+  }
+  return 0;
 }
