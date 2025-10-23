@@ -506,6 +506,12 @@ end
 function lvgl.Roller(parent, property)
 end
 
+--- @param parent? Object | nil
+--- @param property? StyleProp
+--- @return Tabview
+function lvgl.Tabview(parent, property)
+end
+
 ---
 --- Create Timer
 --- @param p TimerPara
@@ -1272,6 +1278,44 @@ end
 --- Get the total number of options
 --- @return integer
 function roller:get_options_cnt()
+end
+
+--- @class Tabview: Object
+local tabview = {}
+
+--- @param name string
+--- @return Object
+function tabview:add_tab(name)
+end
+
+--- @param id integer
+--- @param name string
+function tabview:rename_tab(id, name)
+end
+
+--- @param dir Dir
+function tabview:set_tab_bar_positoin(dir)
+end
+
+--- @param size integer
+function tabview:set_tab_bar_size(size)
+end
+
+--- @return Object
+function tabview:get_tab_bar()
+end
+
+--- @return integer
+function tabview:get_tab_count()
+end
+
+--- @param id integer
+--- @return Object
+function tabview:get_tab_button(id)
+end
+
+--- @return integer
+function tabview:get_tab_active()
 end
 
 ---
