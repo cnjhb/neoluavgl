@@ -57,67 +57,75 @@
 #include "tabview.c"
 #endif
 
+#if LV_USE_FFMPEG
+#include "ffmpeg.c"
+#endif
+
 static int luavgl_obj_create(lua_State *L);
 
 static const luaL_Reg widget_create_methods[] = {
-    {"Object",   luavgl_obj_create     },
+    {"Object",       luavgl_obj_create          },
 
 #if LV_USE_ARC
-    {"Arc",      luavgl_arc_create     },
+    {"Arc",          luavgl_arc_create          },
 #endif
 
 #if LV_USE_CALENDAR
-    {"Calendar", luavgl_calendar_create},
+    {"Calendar",     luavgl_calendar_create     },
 #endif
 
 #if LV_USE_CHECKBOX
-    {"Checkbox", luavgl_checkbox_create},
+    {"Checkbox",     luavgl_checkbox_create     },
 #endif
 
 #if LV_USE_DROPDOWN
-    {"Dropdown", luavgl_dropdown_create},
+    {"Dropdown",     luavgl_dropdown_create     },
 #endif
 
 #if LV_USE_IMAGE
-    {"Image",    luavgl_img_create     },
+    {"Image",        luavgl_img_create          },
 #endif
 
 #if LV_USE_KEYBOARD
-    {"Keyboard", luavgl_keyboard_create},
+    {"Keyboard",     luavgl_keyboard_create     },
 #endif
 
 #if LV_USE_LABEL
-    {"Label",    luavgl_label_create   },
+    {"Label",        luavgl_label_create        },
 #endif
 
 #if LV_USE_LED
-    {"Led",      luavgl_led_create     },
+    {"Led",          luavgl_led_create          },
 #endif
 
 #if LV_USE_LINE
-    {"Line",     luavgl_line_create    },
+    {"Line",         luavgl_line_create         },
 #endif
 
 #if LV_USE_LIST
-    {"List",     luavgl_list_create    },
+    {"List",         luavgl_list_create         },
 #endif
 
 #if LV_USE_ROLLER
-    {"Roller",   luavgl_roller_create  },
+    {"Roller",       luavgl_roller_create       },
 #endif
 
 #if LV_USE_TEXTAREA
-    {"Textarea", luavgl_textarea_create},
+    {"Textarea",     luavgl_textarea_create     },
 #endif
 
 #if LV_USE_TEXTAREA
-    {"Button",   luavgl_button_create  },
+    {"Button",       luavgl_button_create       },
 #endif
 
 #if LV_USE_TABVIEW
-    {"Tabview",  luavgl_tabview_create },
+    {"Tabview",      luavgl_tabview_create      },
 #endif
-    {NULL,       NULL                  }
+
+#if LV_USE_FFMPEG
+    {"Ffmpegplayer", luavgl_ffmpeg_player_create},
+#endif
+    {NULL,           NULL                       }
 };
 
 static void luavgl_widgets_init(lua_State *L)
@@ -176,5 +184,9 @@ static void luavgl_widgets_init(lua_State *L)
 
 #if LV_USE_TABVIEW
   luavgl_tabview_init(L);
+#endif
+
+#if LV_USE_FFMPEG
+  luavgl_ffmpeg_player_init(L);
 #endif
 }

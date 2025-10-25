@@ -608,6 +608,17 @@ static const rotable_Reg border_side_const_table[] = {
     {},
 };
 
+#if LV_USE_FFMPEG
+static const rotable_Reg ffmpeg_player_cmd_const_table[] = {
+	{.name = "START", .integer = LV_FFMPEG_PLAYER_CMD_START},
+	{.name = "PAUSE", .integer = LV_FFMPEG_PLAYER_CMD_PAUSE},
+	{.name = "STOP", .integer = LV_FFMPEG_PLAYER_CMD_STOP},
+	{.name = "RESUME", .integer = LV_FFMPEG_PLAYER_CMD_RESUME},
+	{.name = "LAST", .integer = LV_FFMPEG_PLAYER_CMD_LAST},
+	{},
+};
+#endif
+
 static int luavgl_LV_PCT(lua_State *L)
 {
   int pct = lua_tointeger(L, 1);
@@ -668,6 +679,10 @@ static void luavgl_constants_init(lua_State *L)
   rotable_setfiled(L, -2, "KEY", key_const_table);
   rotable_setfiled(L, -2, "COLOR_FORMAT", color_format_const_table);
   rotable_setfiled(L, -2, "BORDER_SIDE", border_side_const_table);
+
+#if LV_USE_FFMPEG
+  rotable_setfiled(L, -2, "FFMPEG_PLAYER_CMD", ffmpeg_player_cmd_const_table);
+#endif
   /* miscellaneous. */
 
   lua_pushinteger(L, LV_ANIM_REPEAT_INFINITE);

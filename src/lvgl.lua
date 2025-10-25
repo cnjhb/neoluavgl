@@ -324,6 +324,15 @@ lvgl.BORDER_SIDE = {
 	INTERNAL = 0,
 }
 
+--- @enum FfmpegPlayerCmd
+lvgl.FFMPEG_PLAYER_CMD = {
+	START = 0,
+	PAUSE = 0,
+	STOP = 0,
+	RESUME = 0,
+	LAST = 0,
+}
+
 --- @alias ClassName "lv_obj" | "lv_arc" | "lv_label"
 
 lvgl.TinyTTF = {
