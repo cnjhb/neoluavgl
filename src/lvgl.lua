@@ -521,6 +521,12 @@ end
 function lvgl.Tabview(parent, property)
 end
 
+--- @param parent? Object | nil
+--- @param property? StyleProp
+--- @return FfmpegPlayer
+function lvgl.Ffmpegplayer(parent, property)
+end
+
 ---
 --- Create Timer
 --- @param p TimerPara
@@ -1325,6 +1331,21 @@ end
 
 --- @return integer
 function tabview:get_tab_active()
+end
+
+--- @class FfmpegPlayer: Image
+local ffmpegplayer = {}
+
+--- @param src string
+function ffmpegplayer:set_src(src)
+end
+
+--- @param cmd FfmpegPlayerCmd
+function ffmpegplayer:set_cmd(cmd)
+end
+
+--- @param decoder_name string
+function ffmpegplayer:set_decoder(decoder_name)
 end
 
 ---
