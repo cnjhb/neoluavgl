@@ -1539,7 +1539,7 @@ end
 --- @field text_letter_space? integer
 --- @field text_line_space? integer
 --- @field text_decor? integer
---- @field text_align? integer
+--- @field text_align? TextAlign
 --- @field radius? integer
 --- @field clip_corner? integer
 --- @field opa? integer
