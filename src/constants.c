@@ -1,6 +1,5 @@
 
 #include <lvgl.h>
-#include <src/misc/lv_style.h>
 
 #include "rotable.h"
 
@@ -608,14 +607,22 @@ static const rotable_Reg border_side_const_table[] = {
     {},
 };
 
+static const rotable_Reg text_align_const_table[] = {
+    {.name = "AUTO", .integer = LV_TEXT_ALIGN_AUTO},
+    {.name = "LEFT", .integer = LV_TEXT_ALIGN_LEFT},
+    {.name = "RIGHT", .integer = LV_TEXT_ALIGN_RIGHT},
+    {.name = "CENTER", .integer = LV_TEXT_ALIGN_CENTER},
+    {},
+};
+
 #if LV_USE_FFMPEG
 static const rotable_Reg ffmpeg_player_cmd_const_table[] = {
-	{.name = "START", .integer = LV_FFMPEG_PLAYER_CMD_START},
-	{.name = "PAUSE", .integer = LV_FFMPEG_PLAYER_CMD_PAUSE},
-	{.name = "STOP", .integer = LV_FFMPEG_PLAYER_CMD_STOP},
-	{.name = "RESUME", .integer = LV_FFMPEG_PLAYER_CMD_RESUME},
-	{.name = "LAST", .integer = LV_FFMPEG_PLAYER_CMD_LAST},
-	{},
+    {.name = "START", .integer = LV_FFMPEG_PLAYER_CMD_START},
+    {.name = "PAUSE", .integer = LV_FFMPEG_PLAYER_CMD_PAUSE},
+    {.name = "STOP", .integer = LV_FFMPEG_PLAYER_CMD_STOP},
+    {.name = "RESUME", .integer = LV_FFMPEG_PLAYER_CMD_RESUME},
+    {.name = "LAST", .integer = LV_FFMPEG_PLAYER_CMD_LAST},
+    {},
 };
 #endif
 
@@ -665,6 +672,7 @@ static void luavgl_constants_init(lua_State *L)
   rotable_setfiled(L, -2, "SCR_LOAD_ANIM", scr_load_anim_const_table);
   rotable_setfiled(L, -2, "SCROLLBAR_MODE", scrollbar_mode_const_table);
   rotable_setfiled(L, -2, "DIR", dir_const_table);
+  rotable_setfiled(L, -2, "TEXT_ALIGN", text_align_const_table);
 
 #if LV_USE_KEYBOARD
   rotable_setfiled(L, -2, "KEYBOARD_MODE", keyboard_mode_const_table);

@@ -228,6 +228,14 @@ lvgl.DIR = {
 	ALL = 0,
 }
 
+--- @enum TextAlign
+lvgl.TEXT_ALIGN = {
+	AUTO = 0,
+	LEFT = 0,
+	RIGHT = 0,
+	CENTER = 0,
+}
+
 --- @enum KeyboardMode
 lvgl.KEYBOARD_MODE = {
 	TEXT_LOWER = 0,
