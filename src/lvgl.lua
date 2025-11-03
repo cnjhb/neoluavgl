@@ -1667,9 +1667,9 @@ end
 --- Timer para
 --- @alias TimerCallback fun(t:Timer): nil
 --- @class TimerPara
---- @field paused boolean Do not start timer immediaely
---- @field period integer timer period in ms unit
---- @field repeat_count integer | -1 |
+--- @field paused? boolean Do not start timer immediaely
+--- @field period? integer timer period in ms unit
+--- @field repeat_count? integer | -1 |
 --- @field cb TimerCallback
 ---
 
