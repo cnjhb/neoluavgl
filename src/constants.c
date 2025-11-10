@@ -491,6 +491,14 @@ static const rotable_Reg scrollbar_mode_const_table[] = {
     {0,                0                                  },
 };
 
+static const rotable_Reg scroll_snap_const_table[] = {
+    {.name = "NONE",   .integer = LV_SCROLL_SNAP_NONE  },
+    {.name = "START",  .integer = LV_SCROLL_SNAP_START },
+    {.name = "END",    .integer = LV_SCROLL_SNAP_END   },
+    {.name = "CENTER", .integer = LV_SCROLL_SNAP_CENTER},
+    {0,                0                               },
+};
+
 static const rotable_Reg dir_const_table[] = {
     {.name = "NONE",   .integer = LV_DIR_NONE  },
     {.name = "LEFT",   .integer = LV_DIR_LEFT  },
@@ -671,6 +679,7 @@ static void luavgl_constants_init(lua_State *L)
   rotable_setfiled(L, -2, "LABEL_CONST", label_const_const_table);
   rotable_setfiled(L, -2, "SCR_LOAD_ANIM", scr_load_anim_const_table);
   rotable_setfiled(L, -2, "SCROLLBAR_MODE", scrollbar_mode_const_table);
+  rotable_setfiled(L, -2, "SCROLL_SNAP", scroll_snap_const_table);
   rotable_setfiled(L, -2, "DIR", dir_const_table);
   rotable_setfiled(L, -2, "TEXT_ALIGN", text_align_const_table);
 
