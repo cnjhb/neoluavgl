@@ -216,6 +216,14 @@ lvgl.SCROLLBAR_MODE = {
 	AUTO = 0,
 }
 
+--- @enum ScrollSnap
+lvgl.SCROLL_SNAP = {
+	NONE = 0,
+	START = 0,
+	END = 0,
+	CENTER = 0,
+}
+
 --- @enum Dir
 lvgl.DIR = {
 	NONE = 0,
@@ -426,7 +434,7 @@ end
 
 lvgl.Object = Object
 
---- @param parent? Object | nil
+--- @param parent? Object | nil | ArcStyle
 --- @param property? ArcStyle
 --- @return Arc
 function lvgl.Arc(parent, property)
@@ -678,9 +686,11 @@ end
 
 ---
 --- Set object property
+--- @generic T
+--- @param self T
 --- @param p StyleProp
---- @param selector? integer
---- @return Object
+--- @param selector? ObjPart | ObjState
+--- @return T
 ---
 function obj:set_style(p, selector)
 end
@@ -1478,7 +1488,7 @@ end
 --- @field translate_x? integer
 --- @field translate_y? integer
 --- @field transform_zoom? integer
---- @field transform_angle? integer
+--- @field transform_rotation? integer
 --- @field transform_pivot_x? integer
 --- @field transform_pivot_y? integer
 --- @field pad_all? integer
@@ -1563,8 +1573,8 @@ end
 --- @field align_to? AlignToPara
 --- @field scrollbar_mode? ScrollbarMode
 --- @field scroll_dir? Dir
---- @field scroll_snap_x? integer
---- @field scroll_snap_y? integer
+--- @field scroll_snap_x? ScrollSnap
+--- @field scroll_snap_y? ScrollSnap
 ---
 
 --- @class ArcStyle :ObjectStyle
