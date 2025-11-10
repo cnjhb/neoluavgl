@@ -38,6 +38,7 @@ typedef enum {
 
 typedef void (*setter_int_t)(void *, int);
 typedef void (*setter_pointer_t)(void *, void *);
+typedef void (*setter_stack_t)(void *, lua_State *L);
 
 typedef struct {
   const char *key;
