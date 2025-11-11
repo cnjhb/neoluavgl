@@ -678,8 +678,10 @@ end
 
 ---
 --- Set object property
+--- @generic T
+--- @param self T
 --- @param p StyleProp
---- @return Object
+--- @return T
 ---
 function obj:set(p)
 end
