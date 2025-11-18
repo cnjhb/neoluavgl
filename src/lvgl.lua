@@ -795,8 +795,10 @@ end
 
 ---
 --- clear object flag
+--- @generic T
+--- @param self T
 --- @param p ObjFlag
---- @return Object
+--- @return T
 function obj:clear_flag(p)
 end
 
