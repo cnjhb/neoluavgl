@@ -8,6 +8,7 @@
 #include "font.c"
 #include "fs.c"
 #include "group.c"
+#include "img_dcdr.c"
 #include "indev.c"
 #include "obj.c"
 #include "palette.c"
@@ -113,6 +114,8 @@ LUALIB_API int luaopen_lvgl(lua_State *L)
   lua_setfield(L, -2, "Event");
   luaL_newlib(L, luavgl_draw_buf_methods);
   lua_setfield(L, -2, "DrawBuf");
+  luaL_newlib(L, luavgl_img_dcdr_methods);
+  lua_setfield(L, -2, "ImageDecoder");
 
   luaL_newmetatable(L, "root.meta");
   lua_pushstring(L, "__gc");

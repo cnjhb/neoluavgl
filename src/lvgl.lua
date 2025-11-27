@@ -373,6 +373,18 @@ lvgl.DrawBuf = {
 function lvgl.DrawBuf.destroy(buf)
 end
 
+--- @class ImageHeader
+--- @field w integer
+--- @field h integer
+
+lvgl.ImageDecoder = {
+}
+
+--- @param path string
+--- @return ImageHeader
+function lvgl.ImageDecoder.get_info(path)
+end
+
 lvgl.Event = {
 }
 
@@ -529,6 +541,13 @@ end
 --- @param property? RollerStyle
 --- @return Roller
 function lvgl.Roller(parent, property)
+end
+
+--- Create Switch Widget on parent
+--- @param parent? Object | nil
+--- @param property? ObjectStyle
+--- @return Switch
+function lvgl.Switch(parent, property)
 end
 
 --- @param parent? Object | nil
@@ -1316,6 +1335,11 @@ end
 --- @return integer
 function roller:get_options_cnt()
 end
+
+---
+--- @class Switch: Object
+---
+local switch = {}
 
 --- @class Tabview: Object
 local tabview = {}

@@ -21,6 +21,10 @@
 #include "img.c"
 #endif
 
+#if LV_USE_SWITCH
+#include "switch.c"
+#endif
+
 #if LV_USE_KEYBOARD
 #include "keyboard.c"
 #endif
@@ -86,6 +90,10 @@ static const luaL_Reg widget_create_methods[] = {
     {"Image",        luavgl_img_create          },
 #endif
 
+#if LV_USE_SWITCH
+    {"Switch",       luavgl_switch_create       },
+#endif
+
 #if LV_USE_KEYBOARD
     {"Keyboard",     luavgl_keyboard_create     },
 #endif
@@ -132,6 +140,10 @@ static void luavgl_widgets_init(lua_State *L)
 {
 #if LV_USE_IMAGE
   luavgl_img_init(L);
+#endif
+
+#if LV_USE_SWITCH
+  luavgl_switch_init(L);
 #endif
 
 #if LV_USE_ARC
