@@ -756,6 +756,18 @@ function obj:get_parent()
 end
 
 ---
+--- get obj index
+--- @return integer
+function obj:get_index()
+end
+
+--- 
+--- move obj to index
+--- @param index integer
+function obj:move_to_index(index)
+end
+
+---
 --- set and/or get object's parent
 --- @param p Object
 --- @return Object

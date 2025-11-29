@@ -257,6 +257,22 @@ static int luavgl_obj_get_parent(lua_State *L)
   return 1;
 }
 
+static int luavgl_obj_get_index(lua_State *L)
+{
+  lv_obj_t *obj = luavgl_to_obj(L, 1);
+  int32_t index = lv_obj_get_index(obj);
+  lua_pushinteger(L, index);
+  return 1;
+}
+
+static int luavgl_obj_move_to_index(lua_State *L)
+{
+  lv_obj_t *obj = luavgl_to_obj(L, 1);
+  int32_t index = luaL_checkinteger(L, 2);
+  lv_obj_move_to_index(obj, index);
+  return 0;
+}
+
 static int luavgl_obj_get_child(lua_State *L)
 {
   lv_obj_t *obj = luavgl_to_obj(L, 1);
@@ -945,6 +961,8 @@ static const rotable_Reg luavgl_obj_methods[] = {
     {"clean",                    LUA_TFUNCTION,      {luavgl_obj_clean}                   },
     {"set_parent",               LUA_TFUNCTION,      {luavgl_obj_set_parent}              },
     {"get_parent",               LUA_TFUNCTION,      {luavgl_obj_get_parent}              },
+    {"get_index",                LUA_TFUNCTION,      {luavgl_obj_get_index}               },
+    {"move_to_index",            LUA_TFUNCTION,      {luavgl_obj_move_to_index}           },
     {"get_child",                LUA_TFUNCTION,      {luavgl_obj_get_child}               },
     {"get_child_cnt",            LUA_TFUNCTION,      {luavgl_obj_get_child_cnt}           },
     {"get_screen",               LUA_TFUNCTION,      {luavgl_obj_get_screen}              },
