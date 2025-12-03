@@ -452,6 +452,12 @@ lvgl.Object = Object
 function lvgl.Arc(parent, property)
 end
 
+--- @param parent? Object | nil | SliderStyle
+--- @param property? SliderStyle
+--- @return Slider
+function lvgl.Slider(parent, property)
+end
+
 --- Create Calendar widget on parent
 --- @param parent? Object | nil
 --- @param property? StyleProp
@@ -1031,6 +1037,10 @@ local arc = {}
 --- @param r_offset integer
 function arc:rotate_obj_to_angle(obj, r_offset)
 end
+
+--- Slider widget
+--- @class Slider:Object,SliderStyle
+local slider = {}
 
 ---
 --- Calendar widget
@@ -1623,6 +1633,11 @@ end
 --- @field rotation? integer
 --- @field start_angle? integer
 --- @field end_angle? integer
+--- @field value? integer
+--- @field min_value? integer
+--- @field max_value? integer
+
+--- @class SliderStyle: ObjectStyle
 --- @field value? integer
 --- @field min_value? integer
 --- @field max_value? integer

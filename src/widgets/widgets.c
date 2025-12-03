@@ -5,6 +5,10 @@
 #include "arc.c"
 #endif
 
+#if LV_USE_BAR
+#include "bar.c"
+#endif
+
 #if LV_USE_CALENDAR
 #include "calendar.c"
 #endif
@@ -61,6 +65,10 @@
 #include "tabview.c"
 #endif
 
+#if LV_USE_SLIDER
+#include "slider.c"
+#endif
+
 #if LV_USE_FFMPEG
 #include "ffmpeg.c"
 #endif
@@ -72,6 +80,10 @@ static const luaL_Reg widget_create_methods[] = {
 
 #if LV_USE_ARC
     {"Arc",          luavgl_arc_create          },
+#endif
+
+#if LV_USE_BAR
+    {"Bar",          luavgl_bar_create          },
 #endif
 
 #if LV_USE_CALENDAR
@@ -130,6 +142,10 @@ static const luaL_Reg widget_create_methods[] = {
     {"Tabview",      luavgl_tabview_create      },
 #endif
 
+#if LV_USE_SLIDER
+    {"Slider",       luavgl_slider_create       },
+#endif
+
 #if LV_USE_FFMPEG
     {"Ffmpegplayer", luavgl_ffmpeg_player_create},
 #endif
@@ -148,6 +164,10 @@ static void luavgl_widgets_init(lua_State *L)
 
 #if LV_USE_ARC
   luavgl_arc_init(L);
+#endif
+
+#if LV_USE_BAR
+  luavgl_bar_init(L);
 #endif
 
 #if LV_USE_LABEL
@@ -197,6 +217,10 @@ static void luavgl_widgets_init(lua_State *L)
 #if LV_USE_TABVIEW
   luavgl_tabview_init(L);
 #endif
+
+#if LV_USE_SLIDER
+  luavgl_slider_init(L);
+#endif 
 
 #if LV_USE_FFMPEG
   luavgl_ffmpeg_player_init(L);
