@@ -893,28 +893,6 @@ static int obj_property_align(lua_State *L, lv_obj_t *obj, bool set)
   }
 }
 
-static int obj_property_w(lua_State *L, lv_obj_t *obj, bool set)
-{
-  if (set) {
-    lv_obj_set_width(obj, lua_tointeger(L, -1));
-  } else {
-    /* get property */
-    lua_pushinteger(L, lv_obj_get_width(obj));
-  }
-  return 1;
-}
-
-static int obj_property_h(lua_State *L, lv_obj_t *obj, bool set)
-{
-  if (set) {
-    lv_obj_set_height(obj, lua_tointeger(L, -1));
-  } else {
-    /* get property */
-    lua_pushinteger(L, lv_obj_get_height(obj));
-  }
-  return 1;
-}
-
 static int obj_property_user_data(lua_State *L, lv_obj_t *obj, bool set)
 {
 #if (LUA_VERSION_NUM >= 502)
@@ -941,8 +919,6 @@ static int obj_property_user_data(lua_State *L, lv_obj_t *obj, bool set)
 static const luavgl_property_ops_t obj_property_ops[] = {
     {.name = "align",     .ops = obj_property_align    },
     {.name = "id",        .ops = obj_property_id       },
-    {.name = "h",         .ops = obj_property_h        },
-    {.name = "w",         .ops = obj_property_w        },
     {.name = "user_data", .ops = obj_property_user_data},
 };
 
