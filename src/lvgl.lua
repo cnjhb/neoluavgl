@@ -373,6 +373,18 @@ lvgl.DrawBuf = {
 function lvgl.DrawBuf.destroy(buf)
 end
 
+--- @param width integer
+--- @param height integer
+--- @param format ColorFormat
+--- @return DrawBuf
+function lvgl.DrawBuf.create(width, height, format)
+end
+
+--- @param buf DrawBuf
+--- @param dsc { width: integer,center: { x:integer , y:integer }, start_angle:integer , end_angle:integer, radius:integer }
+function lvgl.DrawBuf.drawArc(buf, dsc)
+end
+
 --- @class ImageHeader
 --- @field w integer
 --- @field h integer
@@ -767,7 +779,7 @@ end
 function obj:get_index()
 end
 
---- 
+---
 --- move obj to index
 --- @param index integer
 function obj:move_to_index(index)
@@ -1655,7 +1667,7 @@ end
 
 --- Label style
 --- @class LabelStyle :ObjectStyle
---- @field text string
+--- @field text? string
 
 
 --- Checkbox style
