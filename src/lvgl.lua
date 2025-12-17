@@ -376,8 +376,9 @@ end
 --- @param width integer
 --- @param height integer
 --- @param format ColorFormat
+--- @param stride integer
 --- @return DrawBuf
-function lvgl.DrawBuf.create(width, height, format)
+function lvgl.DrawBuf.create(width, height, format, stride)
 end
 
 --- @param buf DrawBuf
