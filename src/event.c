@@ -30,6 +30,7 @@ static void luavgl_obj_event_cb(lv_event_t *e)
     lua_settop(L, top);
     return;
   }
+  lua_pop(L, 1);
 
   int ref = event->ref;
   if (ref == LUA_NOREF) {
