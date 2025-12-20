@@ -50,6 +50,7 @@ LUALIB_API luavgl_ctx_t *luavgl_context(lua_State *L)
     lua_pushstring(L, luavglgl_key);
     ctx = (luavgl_ctx_t *)lua_newuserdata(L, sizeof(*ctx));
     lv_memset(ctx, 0, sizeof(*ctx));
+    ctx->L = L;
     lua_rawset(L, LUA_REGISTRYINDEX);
   } else {
     ctx = (luavgl_ctx_t *)lua_touserdata(L, -1);

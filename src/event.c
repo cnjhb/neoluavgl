@@ -150,8 +150,9 @@ static int luavgl_obj_on_event(lua_State *L)
     LV_LOG_INFO("obj: %p, push back event: %d", obj, code);
   }
 
+  luavgl_ctx_t* ctx = luavgl_context(L);
   event->code = code;
-  event->L = L;
+  event->L = ctx->L;
   event->ref = luavgl_check_continuation(L, 3);
   event->dsc = lv_obj_add_event_cb(obj, luavgl_obj_event_cb, code, event);
   if (event->dsc == NULL) {

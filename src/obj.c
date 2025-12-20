@@ -1218,7 +1218,8 @@ static void obj_constructor_cb(lua_State *L, const luavgl_obj_class_t *clz,
 {
   /* Init event array to store events added from lua. */
   lv_array_init(&lobj->events, 0, sizeof(struct event_callback_s *));
-  lv_obj_add_event_cb(lobj->obj, obj_delete_cb, LV_EVENT_DELETE, L);
+  luavgl_ctx_t* ctx = luavgl_context(L);
+  lv_obj_add_event_cb(lobj->obj, obj_delete_cb, LV_EVENT_DELETE, ctx->L);
 }
 
 const luavgl_obj_class_t luavgl_obj_class = {

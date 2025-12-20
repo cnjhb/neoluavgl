@@ -24,6 +24,7 @@ typedef struct {
   make_font_cb make_font;
   delete_font_cb delete_font;
   luavgl_pcall_t pcall;
+  lua_State *L;
 } luavgl_ctx_t;
 
 typedef enum {
