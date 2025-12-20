@@ -1638,6 +1638,8 @@ end
 --- @field scroll_dir? Dir
 --- @field scroll_snap_x? ScrollSnap
 --- @field scroll_snap_y? ScrollSnap
+--- @field scroll_x? integer
+--- @field scroll_y? integer
 ---
 
 --- @class ArcStyle :ObjectStyle
