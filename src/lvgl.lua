@@ -622,6 +622,8 @@ end
 --- Basic lvgl object
 --- @class Object : ObjectStyle
 --- @field user_data any
+--- @field state_checked? integer
+--- @field state_pressed? integer
 obj = {}
 
 ---
