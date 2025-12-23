@@ -624,6 +624,8 @@ end
 --- @field user_data any
 --- @field state_checked? integer
 --- @field state_pressed? integer
+--- @field flag_scroll_one? integer
+--- @field flag_hidden? integer
 obj = {}
 
 ---
