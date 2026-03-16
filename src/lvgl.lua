@@ -340,6 +340,21 @@ lvgl.BORDER_SIDE = {
 	INTERNAL = 0,
 }
 
+--- 
+---@class Indev
+---
+local indev = {}
+
+--- @return Dir
+function indev:get_gesture_dir()
+end
+
+lvgl.indev = {
+}
+
+function lvgl.indev.get_act()
+end
+
 --- @enum FfmpegPlayerCmd
 lvgl.FFMPEG_PLAYER_CMD = {
 	START = 0,
