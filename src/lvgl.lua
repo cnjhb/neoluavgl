@@ -352,6 +352,7 @@ end
 lvgl.indev = {
 }
 
+--- @return Indev
 function lvgl.indev.get_act()
 end
 
