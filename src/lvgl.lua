@@ -3,7 +3,7 @@
 --- lvgl comments
 ---
 
-lvgl = {}
+local lvgl = {}
 
 --- constans table. Note that value listed here is only for linter.
 
@@ -470,10 +470,8 @@ end
 --- @param parent? Object | StyleProp
 --- @param property? StyleProp
 --- @return Object
-function Object(parent, property)
+function lvgl.Object(parent, property)
 end
-
-lvgl.Object = Object
 
 --- @param parent? Object | nil | ArcStyle
 --- @param property? ArcStyle
@@ -515,20 +513,16 @@ end
 --- @param parent? Object | nil
 --- @param property? ImageStyle
 --- @return Image
-function Image(parent, property)
+function lvgl.Image(parent, property)
 end
-
-lvgl.Image = Image
 
 ---
 --- Create Label on parent
 --- @param parent? Object | LabelStyle
 --- @param property? LabelStyle
 --- @return Label
-function Label(parent, property)
+function lvgl.Label(parent, property)
 end
-
-lvgl.Label = Label
 
 ---
 --- Create Line on parent
@@ -642,7 +636,7 @@ end
 --- @field state_pressed? integer
 --- @field flag_scroll_one? integer
 --- @field flag_hidden? integer
-obj = {}
+local obj = {}
 
 ---
 --- Create object on object
