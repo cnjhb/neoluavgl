@@ -805,43 +805,6 @@ LUALIB_API int luavgl_obj_get_property(lua_State *L)
   return obj_property(L, obj);
 }
 
-#if LV_USE_OBJ_ID_BUILTIN == 0
-/* For luavgl, we only support string as ID. */
-void lv_obj_assign_id(const lv_obj_class_t *class_p, lv_obj_t *obj) {}
-
-void lv_obj_free_id(lv_obj_t *obj)
-{
-  if (obj->id) {
-    lv_free(obj->id);
-    obj->id = NULL;
-  }
-}
-
-void lv_obj_set_id(lv_obj_t *obj, void *id)
-{
-  lv_obj_free_id(obj);
-  if (id != NULL) {
-    obj->id = lv_strdup(id);
-  }
-}
-
-const char *lv_obj_stringify_id(lv_obj_t *obj, char *buf, uint32_t len)
-{
-  if (obj->id == NULL)
-    return NULL;
-  lv_strlcpy(buf, (const char *)obj->id, len);
-  return buf;
-}
-
-int lv_obj_id_compare(const void *id1, const void *id2)
-{
-  if (id1 == NULL || id2 == NULL)
-    return -1;
-  return lv_strcmp(id1, id2);
-}
-
-#endif
-
 #if LV_USE_OBJ_ID
 static int obj_property_id(lua_State *L, lv_obj_t *obj, bool set)
 {
