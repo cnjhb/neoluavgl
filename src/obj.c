@@ -641,6 +641,7 @@ static int luavgl_obj_get_pos(lua_State *L)
   return 1;
 }
 
+#if LV_USE_OBJ_ID
 static int luavgl_obj_get_child_by_id(lua_State *L)
 {
   lv_obj_t *obj;
@@ -667,6 +668,7 @@ static int luavgl_obj_get_child_by_id(lua_State *L)
 
   return 1;
 }
+#endif
 
 /**
  * Remove all animations associates to this object
@@ -840,6 +842,7 @@ int lv_obj_id_compare(const void *id1, const void *id2)
 
 #endif
 
+#if LV_USE_OBJ_ID
 static int obj_property_id(lua_State *L, lv_obj_t *obj, bool set)
 {
   if (set) {
@@ -856,6 +859,7 @@ static int obj_property_id(lua_State *L, lv_obj_t *obj, bool set)
     return 1;
   }
 }
+#endif
 
 static int obj_property_align(lua_State *L, lv_obj_t *obj, bool set)
 {
@@ -918,7 +922,9 @@ static int obj_property_user_data(lua_State *L, lv_obj_t *obj, bool set)
 
 static const luavgl_property_ops_t obj_property_ops[] = {
     {.name = "align",     .ops = obj_property_align    },
+#if LV_USE_OBJ_ID
     {.name = "id",        .ops = obj_property_id       },
+#endif
     {.name = "user_data", .ops = obj_property_user_data},
 };
 
@@ -973,7 +979,9 @@ static const rotable_Reg luavgl_obj_methods[] = {
     {"indev_search",             LUA_TFUNCTION,      {luavgl_obj_indev_search}            },
     {"get_coords",               LUA_TFUNCTION,      {luavgl_obj_get_coords}              },
     {"get_pos",                  LUA_TFUNCTION,      {luavgl_obj_get_pos}                 },
+#if LV_USE_OBJ_ID
     {"get_child_by_id",          LUA_TFUNCTION,      {luavgl_obj_get_child_by_id}         },
+#endif
 
     {"onevent",                  LUA_TFUNCTION,      {luavgl_obj_on_event}                },
     {"send_event",               LUA_TFUNCTION,      {luavgl_obj_send_event}              },
@@ -1113,9 +1121,11 @@ static void luavgl_obj_init(lua_State *L)
   luavgl_obj_newmetatable(L, &lv_obj_class, "lv_obj", luavgl_obj_methods);
   lua_pop(L, 1); /* remove obj metatable */
 
+#if LV_USE_OBJ_ID
   /* Register to global function */
   lua_pushcfunction(L, luavgl_obj_get_child_by_id);
   lua_setfield(L, -2, "get_child_by_id");
+#endif
 }
 
 /**
@@ -1218,7 +1228,7 @@ static void obj_constructor_cb(lua_State *L, const luavgl_obj_class_t *clz,
 {
   /* Init event array to store events added from lua. */
   lv_array_init(&lobj->events, 0, sizeof(struct event_callback_s *));
-  luavgl_ctx_t* ctx = luavgl_context(L);
+  luavgl_ctx_t *ctx = luavgl_context(L);
   lv_obj_add_event_cb(lobj->obj, obj_delete_cb, LV_EVENT_DELETE, ctx->L);
 }
 
