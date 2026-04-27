@@ -552,6 +552,7 @@ static const rotable_Reg flex_align_const_table[] = {
     {0,                       0                                     },
 };
 
+#if LV_USE_GRID
 static const rotable_Reg grid_align_const_table[] = {
     {.name = "START",         .integer = LV_GRID_ALIGN_START        },
     {.name = "CENTER",        .integer = LV_GRID_ALIGN_CENTER       },
@@ -562,6 +563,7 @@ static const rotable_Reg grid_align_const_table[] = {
     {.name = "SPACE_BETWEEN", .integer = LV_GRID_ALIGN_SPACE_BETWEEN},
     {0,                       0                                     },
 };
+#endif
 
 #if LV_USE_ROLLER
 static const rotable_Reg roller_mode_const_table[] = {
@@ -689,7 +691,9 @@ static void luavgl_constants_init(lua_State *L)
 
   rotable_setfiled(L, -2, "FLEX_FLOW", flex_flow_const_table);
   rotable_setfiled(L, -2, "FLEX_ALIGN", flex_align_const_table);
+#if LV_USE_GRID
   rotable_setfiled(L, -2, "GRID_ALIGN", grid_align_const_table);
+#endif
 #if LV_USE_ROLLER
   rotable_setfiled(L, -2, "ROLLER_MODE", roller_mode_const_table);
 #endif
@@ -765,8 +769,10 @@ static void luavgl_constants_init(lua_State *L)
   lua_pushinteger(L, LV_LAYOUT_FLEX);
   lua_setfield(L, -2, "LAYOUT_FLEX");
 
+#if LV_USE_GRID
   lua_pushinteger(L, LV_LAYOUT_GRID);
   lua_setfield(L, -2, "LAYOUT_GRID");
+#endif
 
   lua_pushcfunction(L, luavgl_LV_HOR_RES);
   lua_setfield(L, -2, "HOR_RES");
