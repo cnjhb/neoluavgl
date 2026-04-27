@@ -340,7 +340,7 @@ lvgl.BORDER_SIDE = {
 	INTERNAL = 0,
 }
 
---- 
+---
 ---@class Indev
 ---
 local indev = {}
@@ -467,9 +467,10 @@ end
     - when parent is nil, object is created on lvgl root.
     - property can be used to set any object style, like using `lv_obj_set_style`
 ]]
---- @param parent? Object | StyleProp
+--- @param parent Object
 --- @param property? StyleProp
 --- @return Object
+--- @overload fun(property?: StyleProp): Object
 function lvgl.Object(parent, property)
 end
 
@@ -1746,7 +1747,7 @@ end
 --- @field run? boolean run this anim right now, or later using anim:start(). default: false
 --- @field start_value? integer start value
 --- @field end_value? integer
---- @field duration? integer Anim duration in milisecond
+--- @field duration? integer Anim duration in milisecond , default: 500ms
 --- @field delay? integer Set a delay before starting the animation
 --- @field repeat_count? integer Anim repeat count, default: 1, set to 0 to disable repeat, set to lvgl.ANIM_REPEAT_INFINITE for infinite repeat, set to any other integer for specified repeate count
 --- @field playback_delay? integer
