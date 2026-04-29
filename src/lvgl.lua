@@ -381,6 +381,14 @@ function disp:get_layer_top()
 end
 
 --- @return Object
+function disp:get_layer_sys()
+end
+
+--- @return Object
+function disp:get_layer_bottom()
+end
+
+--- @return Object
 function disp:get_scr_act()
 end
 
