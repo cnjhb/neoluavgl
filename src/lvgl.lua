@@ -370,6 +370,31 @@ lvgl.FFMPEG_PLAYER_CMD = {
 lvgl.TinyTTF = {
 }
 
+---
+--- @class Disp
+---
+local disp = {
+}
+
+--- @return Object
+function disp:get_layer_top()
+end
+
+--- @return Object
+function disp:get_scr_act()
+end
+
+lvgl.disp = {
+}
+
+--- @return Disp
+function lvgl.disp.get_default()
+end
+
+--- @return Object
+function lvgl.disp.get_scr_act()
+end
+
 --- @param path string
 --- @param size integer
 --- @return Font
@@ -483,6 +508,7 @@ end
 --- @param parent Object
 --- @param property? BarStyle
 --- @return Bar
+--- @overload fun(property?: BarStyle): Bar
 function lvgl.Bar(parent, property)
 end
 
