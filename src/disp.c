@@ -167,10 +167,10 @@ static int luavgl_disp_load_scr(lua_State *L)
   return 0;
 }
 
-static int luavgl_disp_get_layer_top(lua_State *L)
+static int disp_get_layer(lua_State *L, lv_obj_t *(*func)(lv_display_t *d))
 {
   luavgl_disp_t *d = luavgl_check_disp(L, 1);
-  lv_obj_t *obj = lv_disp_get_layer_top(d->disp);
+  lv_obj_t *obj = func(d->disp);
   if (obj == NULL) {
     lua_pushnil(L);
     return 1;
@@ -187,24 +187,19 @@ static int luavgl_disp_get_layer_top(lua_State *L)
   return 1;
 }
 
+static int luavgl_disp_get_layer_top(lua_State *L)
+{
+  return disp_get_layer(L, lv_display_get_layer_top);
+}
+
 static int luavgl_disp_get_layer_sys(lua_State *L)
 {
-  luavgl_disp_t *d = luavgl_check_disp(L, 1);
-  lv_obj_t *obj = lv_disp_get_layer_sys(d->disp);
-  if (obj == NULL) {
-    lua_pushnil(L);
-    return 1;
-  }
+  return disp_get_layer(L, lv_display_get_layer_sys);
+}
 
-  /* registry[obj] */
-  lua_pushlightuserdata(L, obj);
-  lua_rawget(L, LUA_REGISTRYINDEX);
-
-  if (lua_isnoneornil(L, -1)) {
-    luavgl_add_lobj(L, obj)->lua_created = false;
-  }
-
-  return 1;
+static int luavgl_disp_get_layer_bottom(lua_State *L)
+{
+  return disp_get_layer(L, lv_display_get_layer_bottom);
 }
 
 static int luavgl_disp_get_next(lua_State *L)
@@ -270,15 +265,16 @@ static const rotable_Reg disp_lib[] = {
 ** methods for disp handles
 */
 static const rotable_Reg disp_methods[] = {
-    {"get_layer_top", LUA_TFUNCTION, {luavgl_disp_get_layer_top}},
-    {"get_layer_sys", LUA_TFUNCTION, {luavgl_disp_get_layer_sys}},
-    {"get_next",      LUA_TFUNCTION, {luavgl_disp_get_next}     },
-    {"set_rotation",  LUA_TFUNCTION, {luavgl_disp_set_rotation} },
-    {"get_res",       LUA_TFUNCTION, {luavgl_disp_get_res}      },
-    {"get_scr_act",   LUA_TFUNCTION, {luavgl_disp_get_scr_act}  },
-    {"get_scr_prev",  LUA_TFUNCTION, {luavgl_disp_get_scr_prev} },
+    {"get_layer_top",    LUA_TFUNCTION, {luavgl_disp_get_layer_top}   },
+    {"get_layer_sys",    LUA_TFUNCTION, {luavgl_disp_get_layer_sys}   },
+    {"get_layer_bottom", LUA_TFUNCTION, {luavgl_disp_get_layer_bottom}},
+    {"get_next",         LUA_TFUNCTION, {luavgl_disp_get_next}        },
+    {"set_rotation",     LUA_TFUNCTION, {luavgl_disp_set_rotation}    },
+    {"get_res",          LUA_TFUNCTION, {luavgl_disp_get_res}         },
+    {"get_scr_act",      LUA_TFUNCTION, {luavgl_disp_get_scr_act}     },
+    {"get_scr_prev",     LUA_TFUNCTION, {luavgl_disp_get_scr_prev}    },
 
-    {0,               0,             {0}                        },
+    {0,                  0,             {0}                           },
 };
 
 static const luaL_Reg disp_meta[] = {
