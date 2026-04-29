@@ -365,7 +365,11 @@ lvgl.FFMPEG_PLAYER_CMD = {
 	LAST = 0,
 }
 
---- @alias ClassName "lv_obj" | "lv_arc" | "lv_label"
+--- @alias ClassName
+--- | "lv_obj"
+--- | "lv_arc"
+--- | "lv_bar"
+--- | "lv_label"
 
 lvgl.TinyTTF = {
 }
