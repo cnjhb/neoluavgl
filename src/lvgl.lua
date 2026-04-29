@@ -480,6 +480,12 @@ end
 function lvgl.Arc(parent, property)
 end
 
+--- @param parent Object
+--- @param property? BarStyle
+--- @return Bar
+function lvgl.Bar(parent, property)
+end
+
 --- @param parent? Object | nil | SliderStyle
 --- @param property? SliderStyle
 --- @return Slider
@@ -1069,6 +1075,10 @@ end
 --- Slider widget
 --- @class Slider:Object,SliderStyle
 local slider = {}
+
+--- Bar widget
+--- @class Bar:Object,BarStyle
+local bar = {}
 
 ---
 --- Calendar widget
@@ -1667,7 +1677,13 @@ end
 --- @field min_value? integer
 --- @field max_value? integer
 
---- @class SliderStyle: ObjectStyle
+--- @class BarStyle :ObjectStyle
+--- @field value? integer
+--- @field min_value? integer
+--- @field max_value? integer
+--- @field start_value? integer
+
+--- @class SliderStyle: BarStyle
 --- @field value? integer
 --- @field min_value? integer
 --- @field max_value? integer
