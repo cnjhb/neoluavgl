@@ -7,15 +7,8 @@ static int luavgl_keyboard_create(lua_State *L)
   return luavgl_obj_create_helper(L, lv_keyboard_create);
 }
 
-static const luavgl_table_t keyboard_property_table = {
-    .len = 0,
-    .array = NULL,
-};
-
 static const rotable_Reg luavgl_keyboard_methods[] = {
-    {"__property", LUA_TLIGHTUSERDATA, {.ptr = &img_property_table}},
-
-    {0,            0,                  {0}                         },
+    {},
 };
 
 static void luavgl_keyboard_init(lua_State *L)
