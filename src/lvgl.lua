@@ -3,7 +3,7 @@
 --- lvgl comments
 ---
 
-local lvgl = {}
+lvgl = {}
 
 --- constans table. Note that value listed here is only for linter.
 
