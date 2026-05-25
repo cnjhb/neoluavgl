@@ -1329,7 +1329,7 @@ end
 
 ---
 --- Keyboard widget
----@class Keyboard: Object based on btnmatrix object
+---@class Keyboard: KeyboardStyle,Object 
 ---
 local keyboard = {}
 
