@@ -1312,7 +1312,7 @@ local line = {}
 
 ---
 --- Textarea widget
----@class Textarea: Object
+---@class Textarea: TextareaStyle,Object
 ---
 local textarea = {}
 
